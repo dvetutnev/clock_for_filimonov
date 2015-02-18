@@ -1,0 +1,16 @@
+Output: Gerber X2 Files
+Type  : GerberX2
+From  : Project [clock_for_filimonov.PrjPcb]
+   Generated File[PCB_Copper_Signal_Bot.gbr]
+   Generated File[PCB_Mechanical_3.gbr]
+   Generated File[PCB_NPTH_Drill.gbr]
+   Generated File[PCB_PTH_Drill.gbr]
+   Generated File[PCB.RUL]
+   Generated File[PCB.EXTREP]
+   Generated File[PCB.REP]
+
+
+Files Generated   : 7
+Documents Printed : 0
+
+Finished Output Generation At 1:59:37 On 29.11.2014

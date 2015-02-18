@@ -1,0 +1,118 @@
+The target system is: Generic -  - 
+The host system is: Windows - 6.2 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler: d:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe 
+Build flags: -std=gnu99;-pedantic;-mmcu=atmega8;-DF_CPU=1000000UL;-Os;-gdwarf-2;-Wall;-Wstrict-prototypes;-Wundef;-funsigned-char;-funsigned-bitfields;-fpack-struct;-fshort-enums
+Id flags: 
+
+The output was:
+0
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "a.out"
+
+The C compiler identification is GNU, found in "D:/test_cmake/build/CMakeFiles/3.0.2/CompilerIdC/a.out"
+
+Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+GNU assembler (AVR_8_bit_GNU_Toolchain_3.4.5_1522) 2.24
+Copyright 2013 Free Software Foundation, Inc.
+This program is free software; you may redistribute it under the terms of
+the GNU General Public License version 3 or later.
+This program has absolutely no warranty.
+This assembler was configured for a target of `avr'.
+Determining if the C compiler works passed with the following output:
+Change Dir: D:/test_cmake/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec868598943/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec868598943.dir/build.make CMakeFiles/cmTryCompileExec868598943.dir/build
+make[1]: вход в каталог «/d/test_cmake/build/CMakeFiles/CMakeTmp»
+/C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/test_cmake/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec868598943.dir/testCCompiler.c.obj
+/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe   -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums    -o CMakeFiles/cmTryCompileExec868598943.dir/testCCompiler.c.obj   -c /D/test_cmake/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec868598943
+/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums     "CMakeFiles/cmTryCompileExec868598943.dir/testCCompiler.c.obj"   -o cmTryCompileExec868598943  
+make[1]: выход из каталога «/d/test_cmake/build/CMakeFiles/CMakeTmp»
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: D:/test_cmake/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec70800406/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec70800406.dir/build.make CMakeFiles/cmTryCompileExec70800406.dir/build
+make[1]: вход в каталог «/d/test_cmake/build/CMakeFiles/CMakeTmp»
+/C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/test_cmake/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj
+/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe   -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums    -o CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.0/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec70800406
+/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums   -v "CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec70800406   
+Using built-in specs.
+COLLECT_GCC=D:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe
+COLLECT_LTO_WRAPPER=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe
+Target: avr
+Configured with: /home/jenkins/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib CPPFLAGS= --target=avr --host=i686-pc-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --libdir=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-gmp=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-mpc=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --enable-win32-registry=avrtoolchain --enable-fixed-point --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.4.5_1522 --with-bugurl=http://www.atmel.com
+Thread model: single
+gcc version 4.8.1 (AVR_8_bit_GNU_Toolchain_3.4.5_1522) 
+COMPILER_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/;d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/
+LIBRARY_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/
+COLLECT_GCC_OPTIONS='-std=gnu99' '-Wpedantic' '-mmcu=atmega8' '-D' 'F_CPU=1000000UL' '-Os' '-gdwarf-2' '-Wall' '-Wstrict-prototypes' '-Wundef' '-funsigned-char' '-funsigned-bitfields' '-fpack-struct' '-fshort-enums' '-v' '-o' 'cmTryCompileExec70800406'
+ d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -m avr4 -o cmTryCompileExec70800406 d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+make[1]: выход из каталога «/d/test_cmake/build/CMakeFiles/CMakeTmp»
+
+
+Parsed C implicit link information from above output:
+  link line regex: [^( *|.*[/\])(avr-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
+  ignore line: [Change Dir: D:/test_cmake/build/CMakeFiles/CMakeTmp]
+  ignore line: []
+  ignore line: [Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec70800406/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec70800406.dir/build.make CMakeFiles/cmTryCompileExec70800406.dir/build]
+  ignore line: [make[1]: вход в каталог «/d/test_cmake/build/CMakeFiles/CMakeTmp»]
+  ignore line: [/C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/test_cmake/build/CMakeFiles/CMakeTmp/CMakeFiles 1]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe   -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums    -o CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.0/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec70800406]
+  ignore line: [/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums   -v "CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec70800406   ]
+  ignore line: [Using built-in specs.]
+  ignore line: [COLLECT_GCC=D:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe]
+  ignore line: [Target: avr]
+  ignore line: [Configured with: /home/jenkins/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib CPPFLAGS= --target=avr --host=i686-pc-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --libdir=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-gmp=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-mpc=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --enable-win32-registry=avrtoolchain --enable-fixed-point --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.4.5_1522 --with-bugurl=http://www.atmel.com]
+  ignore line: [Thread model: single]
+  ignore line: [gcc version 4.8.1 (AVR_8_bit_GNU_Toolchain_3.4.5_1522) ]
+  ignore line: [COMPILER_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/]
+  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-std=gnu99' '-Wpedantic' '-mmcu=atmega8' '-D' 'F_CPU=1000000UL' '-Os' '-gdwarf-2' '-Wall' '-Wstrict-prototypes' '-Wundef' '-funsigned-char' '-funsigned-bitfields' '-fpack-struct' '-fshort-enums' '-v' '-o' 'cmTryCompileExec70800406']
+  link line: [ d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -m avr4 -o cmTryCompileExec70800406 d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
+    arg [d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe] ==> ignore
+    arg [-m] ==> ignore
+    arg [avr4] ==> ignore
+    arg [-o] ==> ignore
+    arg [cmTryCompileExec70800406] ==> ignore
+    arg [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4/crtm8.o] ==> ignore
+    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4]
+    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4]
+    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1]
+    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc]
+    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib]
+    arg [CMakeFiles/cmTryCompileExec70800406.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [--start-group] ==> ignore
+    arg [-lgcc] ==> lib [gcc]
+    arg [-lm] ==> lib [m]
+    arg [-lc] ==> lib [c]
+    arg [--end-group] ==> ignore
+  remove lib [gcc]
+  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/avr4] ==> [d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1/avr4]
+  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/avr4] ==> [d:/toolchain/avr8-gnu-toolchain/avr/lib/avr4]
+  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> [d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1]
+  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> [d:/toolchain/avr8-gnu-toolchain/lib/gcc]
+  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> [d:/toolchain/avr8-gnu-toolchain/avr/lib]
+  implicit libs: [m;c]
+  implicit dirs: [d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1/avr4;d:/toolchain/avr8-gnu-toolchain/avr/lib/avr4;d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;d:/toolchain/avr8-gnu-toolchain/lib/gcc;d:/toolchain/avr8-gnu-toolchain/avr/lib]
+  implicit fwks: []
+
+
