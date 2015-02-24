@@ -1,2 +1,0 @@
-d:/toolchain/avr8-gnu-toolchain/bin/avr-ar.exe cr libBLINK.a  CMakeFiles/BLINK.dir/src/blink.c.obj
-d:/toolchain/avr8-gnu-toolchain/bin/avr-ranlib.exe libBLINK.a

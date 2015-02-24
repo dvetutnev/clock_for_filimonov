@@ -1,3 +1,2 @@
-D:/test_cmake/build/CMakeFiles/BLINK.dir
-D:/test_cmake/build/CMakeFiles/flash.dir
-D:/test_cmake/build/CMakeFiles/main.elf.dir
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/flash.dir
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir

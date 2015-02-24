@@ -4,13 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "D:/test_cmake/src/main.c" "D:/test_cmake/build/CMakeFiles/main.elf.dir/src/main.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir/src/app.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir/src/hal.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir/src/lk.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir/src/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "D:/test_cmake/build/CMakeFiles/BLINK.dir/DependInfo.cmake"
   )
 
 # The include file search paths:

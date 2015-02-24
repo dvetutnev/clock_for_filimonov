@@ -2,6 +2,11 @@ set(CMAKE_C_COMPILER "d:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "4.8.1")
+set(CMAKE_C_COMPILE_FEATURES "")
+set(CMAKE_C90_COMPILE_FEATURES "")
+set(CMAKE_C99_COMPILE_FEATURES "")
+set(CMAKE_C11_COMPILE_FEATURES "")
+
 set(CMAKE_C_PLATFORM_ID "")
 set(CMAKE_C_SIMULATE_ID "")
 set(CMAKE_C_SIMULATE_VERSION "")
@@ -26,7 +31,7 @@ if(CMAKE_COMPILER_IS_MINGW)
   set(MINGW 1)
 endif()
 set(CMAKE_C_COMPILER_ID_RUN 1)
-set(CMAKE_C_SOURCE_FILE_EXTENSIONS c)
+set(CMAKE_C_SOURCE_FILE_EXTENSIONS c;m)
 set(CMAKE_C_IGNORE_EXTENSIONS h;H;o;O;obj;OBJ;def;DEF;rc;RC)
 set(CMAKE_C_LINKER_PREFERENCE 10)
 
@@ -51,7 +56,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "m;c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1/avr4;d:/toolchain/avr8-gnu-toolchain/avr/lib/avr4;d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;d:/toolchain/avr8-gnu-toolchain/lib/gcc;d:/toolchain/avr8-gnu-toolchain/avr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;d:/toolchain/avr8-gnu-toolchain/lib/gcc;d:/toolchain/avr8-gnu-toolchain/avr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 
