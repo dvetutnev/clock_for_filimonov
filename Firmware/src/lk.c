@@ -48,13 +48,25 @@ void lk_tick (void)
 {
 	number_digit++;
 	if ( number_digit > MAX_NUMBER_DIGIT) number_digit = 0;
-	hal_led_number_set (number_digit);
 	hal_led_off ();
+	hal_led_number_set (number_digit);
 	if ( number_digit == NUMBER_NOT_DIGIT )
 	{
 		return;
 	};
-	hal_led_set (digits[number_digit].value);
+	switch ( digits[number_digit].state )
+	{
+		case LK_DIGIT_OFF:
+			break;
+		case LK_DIGIT_ON:
+			hal_led_set (digits[number_digit].value);
+			break;
+		case LK_DIGIT_BLINK:
+			//if 
+			break;
+		default:
+			break;
+	};
 	return;
 }
 
