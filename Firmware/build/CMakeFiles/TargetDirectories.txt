@@ -1,2 +1,0 @@
-D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/flash.dir
-D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/build/CMakeFiles/main.elf.dir

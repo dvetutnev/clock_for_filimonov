@@ -67,16 +67,30 @@
 #define ALARM_DDR DDRD
 
 // Interface
-void hal_init (void);
-void hal_led_off (void);
-void hal_led_set (uint8_t value);
-void hal_led_number_off (void);
-void hal_led_number_set (uint8_t value);
-uint8_t hal_digit_to_7code (uint8_t value);
+void hal_init(void);
+void hal_timer_init(void (*callback)(void));
+void hal_led_off(void);
+void hal_led_set(uint8_t value);
+void hal_led_number_off(void);
+void hal_led_number_set(uint8_t value);
 
-void hal_alarm_set (uint8_t value);
+void hal_alarm_set(uint8_t value);
 
-uint8_t hal_key_get (void);
+uint8_t hal_key_get(void);
 
+//hal_iic
+void hal_iic_init(void);
+void hal_iic_stop(void);
+uint8_t hal_iic_start(uint8_t addr);
+uint8_t hal_iic_rep_start(uint8_t addr);
+void hal_iic_start_wait(uint8_t addr);
+uint8_t hal_iic_write(uint8_t data);
+uint8_t hal_iic_read_ack(void);
+uint8_t hal_iic_read_nak(void);
+uint8_t hal_iic_read(uint8_t ack);
+#define hal_iic_read(ack)  (ack) ? hal_iic_read_ack() : hal_iic_read_nak(); 
+
+//for pc build
+void pchal_tick(void);
 
 #endif // HAL_H
