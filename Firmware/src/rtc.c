@@ -5,7 +5,6 @@
 void rtc_init(void)
 {
 	hal_iic_init();
-	return;
 }
 
 void rtc_get(rtc_time_t *time)
@@ -27,7 +26,6 @@ void rtc_get(rtc_time_t *time)
 	time->hour_10 = hour >> 4;
 	time->hour = hour & 0xf;
 	#endif //DS1307
-	return;
 }
 
 void rtc_set(const rtc_time_t *time)
@@ -41,5 +39,4 @@ void rtc_set(const rtc_time_t *time)
 	hal_iic_write( (time->hour_10 << 4) | time->hour );
 	hal_iic_stop();
 	#endif //DS1307
-	return;
 }

@@ -11,7 +11,12 @@ static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, 
 static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y);
 //static uint32_t pchal_tick(uint32_t interval, void *param);
 
-static uint8_t number_digit;
+// PC emulation
+static SDL_Window *window;
+static SDL_Renderer *renderer;
+
+static uint8_t number_digit = 0;
+static uint8_t alarm_state = 0;
 static uint8_t digits[MAX_NUMBER_DIGIT + 1];
 static void (*timer_callback)(void) = NULL;
 
@@ -190,13 +195,30 @@ void hal_led_number_set(uint8_t value)
 
 void hal_alarm_set(uint8_t value)
 {
+	if ( value == alarm_state ) return;
+	alarm_state = value;
+	SDL_Rect segment_coordinates = {500, 50, 50, 50};
+	if ( value )
+	{
+		// Clear segment
+		SDL_RenderFillRect(renderer, &segment_coordinates);
+		SDL_RenderPresent(renderer);
+	} else
+	{
+		//Save color
+		Uint8 r, g, b, a;
+		SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
+		// Clear segment
+		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);
+		SDL_RenderFillRect(renderer, &segment_coordinates);
+		SDL_RenderPresent(renderer);
+		// Restore color
+		SDL_SetRenderDrawColor (renderer, r, g, b, a);
+	};
 	return;
 }
 
 // PC emulation
-static SDL_Window *window;
-static SDL_Renderer *renderer;
-
 static int16_t pchal_init(void)
 {
 	if ( SDL_Init(SDL_INIT_EVERYTHING) != 0 ) { printf("%s\t%s\n", "SDL_Init error!", SDL_GetError() ); return 1; };
@@ -238,7 +260,6 @@ static SDL_Rect pchal_segment_coordinates[] =
 static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, int16_t offset_y)
 {
 	SDL_Rect segment_coordinates;
-	Uint8 r, g, b, a;
 	// Load coordinates
 	switch ( segment )
 	{
@@ -295,6 +316,7 @@ static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, 
 	if ( state == 0 || state == 1)
 	{
 		// Save color
+		Uint8 r, g, b, a;
 		SDL_GetRenderDrawColor(renderer, &r, &g, &b, &a);
 		// Clear segment
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, SDL_ALPHA_OPAQUE);

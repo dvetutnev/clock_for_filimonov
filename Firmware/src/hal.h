@@ -55,8 +55,13 @@
 #define NUMBER_DIGIT_4_PORT PORTC
 #define NUMBER_DIGIT_4_DDR DDRC
 
-#define MAX_NUMBER_DIGIT 4 // Нумерация от 0
+#define MAX_NUMBER_DIGIT 4 // Максимальный разряд, нумерация от 0
 #define NUMBER_NOT_DIGIT MAX_NUMBER_DIGIT // Последний разряд двоеточие и дополнительные светодиоды
+#define MAX_NUMBER_TIMER 4 // Максимальный таймер, нумерация от 0
+#define TIMER_LK_TICK 0 // Таймер для callback lk
+#define TIMER_LK_BLINK 1 // Таймер мигания активных разрядов
+#define TIMER_LK_KEY_RIPPLE 2 // Таймер подавления дребезга кнопок
+#define TIMER_LK_KEY_FIXED 3 // Таймер зажатой кнопки
 
 #define KEY_PIN 3
 #define KEY_PORT PIND

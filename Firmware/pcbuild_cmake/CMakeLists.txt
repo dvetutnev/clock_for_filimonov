@@ -18,7 +18,7 @@ SET(CMAKE_C_FLAGS ${CMAKE_C_FLAGS} ${CFLAGS} CACHE STRING "" FORCE)
 
 ADD_DEFINITIONS(-DPC_BUILD)
 
-ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ../src/${CMAKE_PROJECT_NAME}.c ../src/hal_pc.c ../src/lk.c ../src/app.c ../src/rtc.c)
+ADD_EXECUTABLE(${CMAKE_PROJECT_NAME} ../src/${CMAKE_PROJECT_NAME}.c ../src/app.c ../src/lk.c ../src/rtc.c ../src/timer.c ../src/hal_pc.c)
 
 INCLUDE(FindPkgConfig)
 

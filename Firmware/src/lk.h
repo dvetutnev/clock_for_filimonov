@@ -25,7 +25,13 @@ void lk_set_ddot(uint8_t state);
 #define LK_ALED_OFF 0
 #define LK_ALED_ON 1
 #define LK_ALED_BLINK 2
-void lk_set_aled_state(uint8_t number, uint8_t state); 
+void lk_set_aled(uint8_t number, uint8_t state); 
+
+// Дополнительные светодиоды
+#define LK_ALARM_OFF 0
+#define LK_ALARM_ON 1
+#define LK_ALARM_BLINK 2
+void lk_set_alarm(uint8_t state);
 
 // Кнопки
 #define LK_KEY_UP 0
