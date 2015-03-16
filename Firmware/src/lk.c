@@ -5,8 +5,8 @@
 #include "timer.h"
 #include "hal.h"
 
-static volatile uint8_t number_digit; // Текущий разряд
-static volatile uint8_t alarm_state; // Текущий разряд
+static volatile uint8_t number_digit = 0; // Текущий разряд
+static volatile uint8_t alarm_state = LK_LED_OFF; // Текущий разряд
 
 static uint8_t lk_digit_to_7code(uint8_t value); // Преобразование цифры в семисегментный код
 
@@ -28,11 +28,9 @@ static key_t keys[MAX_NUMBER_DIGIT + 1];
 
 void lk_init(void)
 {
-	number_digit = 0;
-	alarm_state = LK_ALARM_OFF;
 	for (uint8_t i = 0; i < MAX_NUMBER_DIGIT; i++)
 	{
-		digits[i].state = LK_DIGIT_ON;
+		digits[i].state = LK_LED_ON;
 		digits[i].value = 0;
 		keys[i].state = 0;
 		keys[i].old_value = 0;
@@ -41,7 +39,6 @@ void lk_init(void)
 	};
 	hal_led_off();
 	hal_led_number_off();
-	//hal_timer_init(&lk_tick);
 	timer_set_callback(timer_get_object(TIMER_LK_TICK), &lk_tick);
 	timer_set(timer_get_object(TIMER_LK_TICK), 1);
 	return;
@@ -61,12 +58,12 @@ void lk_tick(void)
 	{
 		switch ( digits[number_digit].state )
 		{
-			case LK_DIGIT_OFF:
+			case LK_LED_OFF:
 				break;
-			case LK_DIGIT_ON:
+			case LK_LED_ON:
 				hal_led_set(digits[number_digit].value);
 				break;
-			case LK_DIGIT_BLINK:
+			case LK_LED_BLINK:
 				//if 
 				break;
 			default:
@@ -95,35 +92,35 @@ void lk_set_digit_state(uint8_t number, uint8_t state)
 	if ( number > MAX_NUMBER_DIGIT || number == NUMBER_NOT_DIGIT ) return; // Только цифры
 	switch (state)
 	{
-		case LK_DIGIT_OFF:
-		case LK_DIGIT_ON:
-		case LK_DIGIT_BLINK:
+		case LK_LED_OFF:
+		case LK_LED_ON:
+		case LK_LED_BLINK:
 			digits[number].state = state;
+	};
+}
+
+static void lk_set_aled_state(uint8_t bits, uint8_t state)
+{
+	switch (state)
+	{
+		case LK_LED_OFF:
+			digits[NUMBER_NOT_DIGIT].value &= ~bits;
+			digits[NUMBER_NOT_DIGIT].state &= ~bits;
 			break;
-		default:
+		case LK_LED_ON:
+			digits[NUMBER_NOT_DIGIT].value |= bits;
+			digits[NUMBER_NOT_DIGIT].state &= ~bits;
+			break;
+		case LK_LED_BLINK:
+			digits[NUMBER_NOT_DIGIT].value |= bits;
+			digits[NUMBER_NOT_DIGIT].state |= bits;
 			break;
 	};
 }
 
 void lk_set_ddot(uint8_t state)
 {
-	switch (state)
-	{
-		case LK_DDOT_OFF:
-			digits[NUMBER_NOT_DIGIT].value &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
-			digits[NUMBER_NOT_DIGIT].state &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
-			break;
-		case LK_DDOT_ON:
-			digits[NUMBER_NOT_DIGIT].value |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
-			digits[NUMBER_NOT_DIGIT].state &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
-			break;
-		case LK_DDOT_BLINK:
-			digits[NUMBER_NOT_DIGIT].value |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
-			digits[NUMBER_NOT_DIGIT].state |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
-			break;
-		default:
-			return;
-	};
+	lk_set_aled_state(SEGMENT_DOT_0 | SEGMENT_DOT_1, state);
 }
 
 void lk_set_aled(uint8_t number, uint8_t state)
@@ -145,24 +142,7 @@ void lk_set_aled(uint8_t number, uint8_t state)
 		default:
 			return;
 	};
-
-	switch (state)
-	{
-		case LK_DDOT_OFF:
-			digits[NUMBER_NOT_DIGIT].value &= ~(number);
-			digits[NUMBER_NOT_DIGIT].state &= ~(number);
-			break;
-		case LK_DDOT_ON:
-			digits[NUMBER_NOT_DIGIT].value |= number;
-			digits[NUMBER_NOT_DIGIT].state &= ~(number);
-			break;
-		case LK_DDOT_BLINK:
-			digits[NUMBER_NOT_DIGIT].value |= number;
-			digits[NUMBER_NOT_DIGIT].state |= number;
-			break;
-		default:
-			return;
-	};
+	lk_set_aled_state(number, state);
 } //void lk_set_aled_state(uint8_t number, uint8_t state)
 
 void lk_set_alarm(uint8_t state)

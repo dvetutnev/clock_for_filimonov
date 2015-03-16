@@ -9,28 +9,13 @@ void lk_tick(void); // callback тик от таймера
 // Цифры, нумерация с нуля
 void lk_set_digit(uint8_t number, uint8_t value); // Вывести одну цифру
 void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t value_3); // вывести 4 цифры
-// Состояние цифры
-#define LK_DIGIT_OFF 0
-#define LK_DIGIT_ON 1
-#define LK_DIGIT_BLINK 2
+// Состояние светодиодов
+#define LK_LED_OFF 0
+#define LK_LED_ON 1
+#define LK_LED_BLINK 2
 void lk_set_digit_state(uint8_t number, uint8_t state); 
-
-// Двоеточие
-#define LK_DDOT_OFF 0
-#define LK_DDOT_ON 1
-#define LK_DDOT_BLINK 2
 void lk_set_ddot(uint8_t state);
-
-// Дополнительные светодиоды
-#define LK_ALED_OFF 0
-#define LK_ALED_ON 1
-#define LK_ALED_BLINK 2
 void lk_set_aled(uint8_t number, uint8_t state); 
-
-// Дополнительные светодиоды
-#define LK_ALARM_OFF 0
-#define LK_ALARM_ON 1
-#define LK_ALARM_BLINK 2
 void lk_set_alarm(uint8_t state);
 
 // Кнопки
