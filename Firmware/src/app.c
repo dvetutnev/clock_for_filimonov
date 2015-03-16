@@ -28,13 +28,13 @@ void app_init(void)
 	alarm_time.second = 0;
 	
 	current_time.hour_10 = 0;
-	current_time.hour = 2;
+	current_time.hour = 0;
 	current_time.minute_10 = 1;
-	current_time.minute = 2;
+	current_time.minute = 0;
 	current_time.second_10 = 0;
 	current_time.second = 0;
 	
-	rtc_set(&current_time);
+	//rtc_set(&current_time);
 }
 
 void app_run(void)
@@ -55,8 +55,16 @@ void app_run(void)
 	lk_set_4digits(0, 0, 0, d);
 	
 	
-	*/
+	*/ /*
+	int16_t pchal_set_segment_(char segment, uint8_t state, int16_t offset_x, int16_t offset_y);
+	pchal_set_segment_('0', 1, 0, 0);
+	pchal_set_segment_('1', 1, 0, 0);
+	pchal_set_segment_('2', 1, 0, 0);
+	pchal_set_segment_('3', 1, 0, 0);
+	pchal_set_segment_('4', 1, 0, 0);
+	pchal_set_segment_('5', 1, 0, 0); */
 	rtc_get(&current_time);
+	if ( current_time.second & 0x01 ) lk_set_ddot(LK_DDOT_ON); else lk_set_ddot(LK_DDOT_OFF);
 	lk_set_4digits(current_time.hour_10, current_time.hour, current_time.minute_10, current_time.minute);
 	
 }

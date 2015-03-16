@@ -36,11 +36,73 @@ void hal_led_off(void)
 void hal_led_set(uint8_t value)
 {
 	int16_t offset_x, offset_y;
+	pchal_getoffset (number_digit, &offset_x, &offset_y);
 	if ( number_digit == NUMBER_NOT_DIGIT )
 	{
+	if ( (value & SEGMENT_ADD_0) != (digits[number_digit] & SEGMENT_ADD_0) ) {
+		if ( value & SEGMENT_ADD_0 )
+		{
+			digits[number_digit] |= SEGMENT_ADD_0;
+			pchal_set_segment('0', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_ADD_0;
+			pchal_set_segment('0', 0, offset_x, offset_y);
+	}; };
+	if ( (value & SEGMENT_ADD_1) != (digits[number_digit] & SEGMENT_ADD_1) ) {
+		if ( value & SEGMENT_ADD_1 )
+		{
+			digits[number_digit] |= SEGMENT_ADD_1;
+			pchal_set_segment('1', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_ADD_1;
+			pchal_set_segment('1', 0, offset_x, offset_y);
+	}; };
+	if ( (value & SEGMENT_ADD_2) != (digits[number_digit] & SEGMENT_ADD_2) ) {
+		if ( value & SEGMENT_ADD_2 )
+		{
+			digits[number_digit] |= SEGMENT_ADD_2;
+			pchal_set_segment('2', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_ADD_2;
+			pchal_set_segment('2', 0, offset_x, offset_y);
+	}; };
+	if ( (value & SEGMENT_ADD_3) != (digits[number_digit] & SEGMENT_ADD_3) ) {
+		if ( value & SEGMENT_ADD_3 )
+		{
+			digits[number_digit] |= SEGMENT_ADD_3;
+			pchal_set_segment('3', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_ADD_3;
+			pchal_set_segment('3', 0, offset_x, offset_y);
+	}; };
+	if ( (value & SEGMENT_DOT_0) != (digits[number_digit] & SEGMENT_DOT_0) ) {
+		if ( value & SEGMENT_DOT_0 )
+		{
+			digits[number_digit] |= SEGMENT_DOT_0;
+			pchal_set_segment('4', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_DOT_0;
+			pchal_set_segment('4', 0, offset_x, offset_y);
+	}; };
+	if ( (value & SEGMENT_DOT_1) != (digits[number_digit] & SEGMENT_DOT_1) ) {
+		if ( value & SEGMENT_DOT_1 )
+		{
+			digits[number_digit] |= SEGMENT_DOT_1;
+			pchal_set_segment('5', 1, offset_x, offset_y);
+		} else
+		{
+			digits[number_digit] &= ~SEGMENT_DOT_1;
+			pchal_set_segment('5', 0, offset_x, offset_y);
+	}; };
+		
 		return;
 	};
-	pchal_getoffset (number_digit, &offset_x, &offset_y);
+	
 	if ( (value & SEGMENT_A) != (digits[number_digit] & SEGMENT_A) ) {
 		if ( value & SEGMENT_A )
 		{
@@ -156,13 +218,22 @@ static int16_t pchal_init(void)
 
 static SDL_Rect pchal_segment_coordinates[] =
 {
+	//7segment
 	{50, 10, 50, 10},
 	{100, 20, 10, 70},
 	{100, 100, 10, 70},
 	{50, 170, 50, 10},
 	{40, 100, 10, 70},
 	{40, 20, 10, 70},
-	{50, 90, 50, 10}
+	{50, 90, 50, 10},
+	//aled
+	{10, 20, 20, 20},
+	{10, 120, 20, 20},
+	{460, 20, 20, 20},
+	{460, 120, 20, 20},
+	//ddot
+	{235, 40, 20, 20},
+	{235, 130, 20, 20}
 };
 static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, int16_t offset_y)
 {
@@ -195,6 +266,24 @@ static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, 
 		case 'h':
 			//segment_coordinates = pchal_segment_coordinates[0];
 			return -1;
+			break;
+		case '0':
+			segment_coordinates = pchal_segment_coordinates[7];
+			break;
+		case '1':
+			segment_coordinates = pchal_segment_coordinates[8];
+			break;
+		case '2':
+			segment_coordinates = pchal_segment_coordinates[9];
+			break;
+		case '3':
+			segment_coordinates = pchal_segment_coordinates[10];
+			break;
+		case '4':
+			segment_coordinates = pchal_segment_coordinates[11];
+			break;
+		case '5':
+			segment_coordinates = pchal_segment_coordinates[12];
 			break;
 		default:
 			return -1;
@@ -231,6 +320,10 @@ static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, 
 	};
 	SDL_RenderPresent(renderer);
 	return 0;
+} //static int16_t pchal_set_segment(char segment, uint8_t state, int16_t offset_x, int16_t offset_y)
+int16_t pchal_set_segment_(char segment, uint8_t state, int16_t offset_x, int16_t offset_y)
+{
+	return pchal_set_segment(segment, state, offset_x, offset_y);
 }
 
 typedef struct
@@ -242,8 +335,8 @@ static digits_offset_t digits_offset[MAX_NUMBER_DIGIT + 1] =
 {
 	{0, 0},
 	{90, 0},
-	{230, 0},
-	{320, 0},
+	{250, 0},
+	{340, 0},
 	{0, 0}
 };
 static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y)

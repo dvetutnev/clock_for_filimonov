@@ -2,6 +2,7 @@
 
 #include <stdint.h>
 #include "lk.h"
+#include "timer.h"
 #include "hal.h"
 
 static volatile uint8_t number_digit; // Текущий разряд
@@ -55,6 +56,7 @@ void lk_tick(void)
 	hal_led_number_set(number_digit);
 	if ( number_digit == NUMBER_NOT_DIGIT )
 	{
+		hal_led_set(digits[number_digit].value);
 		return;
 	};
 	switch ( digits[number_digit].state )
@@ -106,26 +108,61 @@ void lk_set_ddot(uint8_t state)
 {
 	switch (state)
 	{
-		case LK_DIGIT_OFF:
-			digits[NUMBER_NOT_DIGIT].value &= ~SEGMENT_DOT_0 | ~SEGMENT_DOT_1;
-			digits[NUMBER_NOT_DIGIT].state &= ~SEGMENT_DOT_0 | ~SEGMENT_DOT_1;
-		case LK_DIGIT_ON:
-			digits[NUMBER_NOT_DIGIT].value |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
-			digits[NUMBER_NOT_DIGIT].state &= ~SEGMENT_DOT_0 | ~SEGMENT_DOT_1;
+		case LK_DDOT_OFF:
+			digits[NUMBER_NOT_DIGIT].value &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
+			digits[NUMBER_NOT_DIGIT].state &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
 			break;
-		case LK_DIGIT_BLINK:
+		case LK_DDOT_ON:
+			digits[NUMBER_NOT_DIGIT].value |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
+			digits[NUMBER_NOT_DIGIT].state &= ~(SEGMENT_DOT_0 | SEGMENT_DOT_1);
+			break;
+		case LK_DDOT_BLINK:
 			digits[NUMBER_NOT_DIGIT].value |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
 			digits[NUMBER_NOT_DIGIT].state |= SEGMENT_DOT_0 | SEGMENT_DOT_1;
 			break;
 		default:
-			break;
+			return;
 	};
 }
 
 void lk_set_aled_state(uint8_t number, uint8_t state)
 {
-	return;
-}
+	switch (number)
+	{
+		case 0:
+			number = SEGMENT_ADD_0;
+			break;
+		case 1:
+			number = SEGMENT_ADD_1;
+			break;
+		case 2:
+			number = SEGMENT_ADD_2;
+			break;
+		case 3:
+			number = SEGMENT_ADD_3;
+			break;
+		default:
+			return;
+	};
+
+	switch (state)
+	{
+		case LK_DDOT_OFF:
+			digits[NUMBER_NOT_DIGIT].value &= ~(number);
+			digits[NUMBER_NOT_DIGIT].state &= ~(number);
+			break;
+		case LK_DDOT_ON:
+			digits[NUMBER_NOT_DIGIT].value |= number;
+			digits[NUMBER_NOT_DIGIT].state &= ~(number);
+			break;
+		case LK_DDOT_BLINK:
+			digits[NUMBER_NOT_DIGIT].value |= number;
+			digits[NUMBER_NOT_DIGIT].state |= number;
+			break;
+		default:
+			return;
+	};
+} //void lk_set_aled_state(uint8_t number, uint8_t state)
 
 uint8_t lk_get_key(uint8_t number)
 {
