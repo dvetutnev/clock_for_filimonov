@@ -13,6 +13,7 @@ void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t v
 #define LK_LED_OFF 0
 #define LK_LED_ON 1
 #define LK_LED_BLINK 2
+#define LK_LED_BLINK_DELAY 200 // ms
 void lk_set_digit_state(uint8_t number, uint8_t state); 
 void lk_set_ddot(uint8_t state);
 void lk_set_aled(uint8_t number, uint8_t state); 

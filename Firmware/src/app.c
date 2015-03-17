@@ -28,6 +28,8 @@ void app_init(void)
 	current_time.second = 0;
 	
 	//rtc_set(&current_time);
+	lk_set_aled(0, LK_LED_BLINK);
+	lk_set_digit_state(0, LK_LED_BLINK);
 }
 
 void app_run(void)

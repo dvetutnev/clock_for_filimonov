@@ -7,8 +7,13 @@
 
 static volatile uint8_t number_digit = 0; // Текущий разряд
 static volatile uint8_t alarm_state = LK_LED_OFF; // Текущий разряд
+static timer_object_t timer_lk_tick_object; //
+static timer_object_t timer_lk_blink_object; // Таймер мигания
+static uint8_t timer_lk_blink_state = 0; // Первый или второй проход таймера
 
-static uint8_t lk_digit_to_7code(uint8_t value); // Преобразование цифры в семисегментный код
+static uint8_t lk_digit_to_7code_(uint8_t value); // Преобразование цифры в семисегментный код
+static void lk_set_aled_state_(uint8_t bits, uint8_t state); // Установка состояния доп.светодиодов, общая
+static void lk_blink_tick_(void); // Callback таймера мигания
 
 typedef struct
 {
@@ -39,9 +44,14 @@ void lk_init(void)
 	};
 	hal_led_off();
 	hal_led_number_off();
-	timer_set_callback(timer_get_object(TIMER_LK_TICK), &lk_tick);
-	timer_set(timer_get_object(TIMER_LK_TICK), 1);
-	return;
+	//
+	timer_lk_tick_object = timer_get_object(TIMER_LK_TICK);
+	timer_set_callback(timer_lk_tick_object, &lk_tick);
+	timer_set(timer_lk_tick_object, 1);
+	
+	timer_lk_blink_object = timer_get_object(TIMER_LK_BLINK);
+	timer_set_callback(timer_lk_blink_object, &lk_blink_tick_);
+	timer_set(timer_lk_blink_object, LK_LED_BLINK_DELAY);
 }
 
 void lk_tick(void)
@@ -53,30 +63,29 @@ void lk_tick(void)
 	hal_led_number_set(number_digit);
 	if ( number_digit == NUMBER_NOT_DIGIT )
 	{
-		hal_led_set(digits[number_digit].value);
+		if ( timer_lk_blink_state )	hal_led_set(digits[number_digit].value); else hal_led_set(digits[number_digit].value & ~digits[number_digit].state );
+		
 	} else
 	{
 		switch ( digits[number_digit].state )
 		{
 			case LK_LED_OFF:
+				hal_led_set(0);
 				break;
 			case LK_LED_ON:
 				hal_led_set(digits[number_digit].value);
 				break;
 			case LK_LED_BLINK:
-				//if 
-				break;
-			default:
-				break;
+				if ( timer_lk_blink_state ) hal_led_set(digits[number_digit].value); else hal_led_set(0);
 		};
 	};
-	timer_set(timer_get_object(TIMER_LK_TICK), 1);
+	timer_set(timer_lk_tick_object, 1);
 }
 
 void lk_set_digit(uint8_t number, uint8_t value)
 {
 	if ( number > MAX_NUMBER_DIGIT || number == NUMBER_NOT_DIGIT ) return; // Только цифры
-	digits[number].value = lk_digit_to_7code(value);
+	digits[number].value = lk_digit_to_7code_(value);
 }
 
 void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t value_3)
@@ -99,28 +108,9 @@ void lk_set_digit_state(uint8_t number, uint8_t state)
 	};
 }
 
-static void lk_set_aled_state(uint8_t bits, uint8_t state)
-{
-	switch (state)
-	{
-		case LK_LED_OFF:
-			digits[NUMBER_NOT_DIGIT].value &= ~bits;
-			digits[NUMBER_NOT_DIGIT].state &= ~bits;
-			break;
-		case LK_LED_ON:
-			digits[NUMBER_NOT_DIGIT].value |= bits;
-			digits[NUMBER_NOT_DIGIT].state &= ~bits;
-			break;
-		case LK_LED_BLINK:
-			digits[NUMBER_NOT_DIGIT].value |= bits;
-			digits[NUMBER_NOT_DIGIT].state |= bits;
-			break;
-	};
-}
-
 void lk_set_ddot(uint8_t state)
 {
-	lk_set_aled_state(SEGMENT_DOT_0 | SEGMENT_DOT_1, state);
+	lk_set_aled_state_(SEGMENT_DOT_0 | SEGMENT_DOT_1, state);
 }
 
 void lk_set_aled(uint8_t number, uint8_t state)
@@ -142,7 +132,7 @@ void lk_set_aled(uint8_t number, uint8_t state)
 		default:
 			return;
 	};
-	lk_set_aled_state(number, state);
+	lk_set_aled_state_(number, state);
 } //void lk_set_aled_state(uint8_t number, uint8_t state)
 
 void lk_set_alarm(uint8_t state)
@@ -167,7 +157,7 @@ uint8_t lk_get_key(uint8_t number)
 #define DIGIT_8 SEGMENT_A*1 + SEGMENT_B*1 + SEGMENT_C*1 + SEGMENT_D*1 + SEGMENT_E*1 + SEGMENT_F*1 + SEGMENT_G*1
 #define DIGIT_9 SEGMENT_A*1 + SEGMENT_B*1 + SEGMENT_C*1 + SEGMENT_D*1 + SEGMENT_E*0 + SEGMENT_F*1 + SEGMENT_G*1
 #define DIGIT_E SEGMENT_A*1 + SEGMENT_B*0 + SEGMENT_C*0 + SEGMENT_D*1 + SEGMENT_E*0 + SEGMENT_F*0 + SEGMENT_G*1
-static uint8_t lk_digit_to_7code(uint8_t value)
+static uint8_t lk_digit_to_7code_(uint8_t value)
 {
 	switch ( value )
 	{
@@ -185,3 +175,27 @@ static uint8_t lk_digit_to_7code(uint8_t value)
 	};
 }
 
+static void lk_set_aled_state_(uint8_t bits, uint8_t state)
+{
+	switch (state)
+	{
+		case LK_LED_OFF:
+			digits[NUMBER_NOT_DIGIT].value &= ~bits;
+			digits[NUMBER_NOT_DIGIT].state &= ~bits;
+			break;
+		case LK_LED_ON:
+			digits[NUMBER_NOT_DIGIT].value |= bits;
+			digits[NUMBER_NOT_DIGIT].state &= ~bits;
+			break;
+		case LK_LED_BLINK:
+			digits[NUMBER_NOT_DIGIT].value |= bits;
+			digits[NUMBER_NOT_DIGIT].state |= bits;
+			break;
+	};
+} // static void lk_set_aled_state_(uint8_t bits, uint8_t state)
+
+static void lk_blink_tick_(void)  // Callback таймера мигания
+{
+	timer_lk_blink_state = ~timer_lk_blink_state; // Инвертирование направления
+	timer_set(timer_lk_blink_object, LK_LED_BLINK_DELAY); // Перезапуск таймера мигания
+}

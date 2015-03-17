@@ -36,6 +36,44 @@ void hal_timer_init(void (*callback)(void))
 void hal_led_off(void)
 {
 	return;
+	int16_t offset_x, offset_y;
+	pchal_getoffset (number_digit, &offset_x, &offset_y);
+	if ( number_digit == NUMBER_NOT_DIGIT ) return;
+	if ( (digits[number_digit] & SEGMENT_A) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_A;
+		pchal_set_segment('a', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_B) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_B;
+		pchal_set_segment('b', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_C) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_C;
+		pchal_set_segment('c', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_D) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_D;
+		pchal_set_segment('d', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_E) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_E;
+		pchal_set_segment('e', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_F) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_F;
+		pchal_set_segment('f', 0, offset_x, offset_y);
+	};
+	if ( (digits[number_digit] & SEGMENT_G) != 0 )
+	{
+		digits[number_digit] &= ~SEGMENT_G;
+		pchal_set_segment('g', 0, offset_x, offset_y);
+	};
 }
 
 void hal_led_set(uint8_t value)
@@ -474,11 +512,10 @@ void pchal_tick(void)
 	t = tc;
 	SDL_Event event;
 	if ( timer_callback != NULL ) timer_callback();
-	//lk_tick();
-	printf("offset: %d\n", pchal_time_offset);
+	//printf("offset: %d\n", pchal_time_offset);
 	while ( SDL_PollEvent(&event) )
 	{
-		printf("SDL Event, SDL tick: %d\n", SDL_GetTicks());
+		//printf("SDL Event, SDL tick: %d\n", SDL_GetTicks());
 		if ( event.type == SDL_QUIT )
 		{
 			SDL_Quit();
