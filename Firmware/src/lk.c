@@ -24,10 +24,9 @@ static digit_t digits[MAX_NUMBER_DIGIT + 1];
 
 typedef struct
 {
-	uint8_t state;
+	uint8_t value;
 	uint8_t old_value;
-	uint8_t timer_pressed;
-	uint32_t timer_fixed;
+	timer_object_t timer_object;
 } key_t;
 static key_t keys[MAX_NUMBER_DIGIT + 1];
 
@@ -37,10 +36,8 @@ void lk_init(void)
 	{
 		digits[i].state = LK_LED_ON;
 		digits[i].value = 0;
-		keys[i].state = 0;
+		keys[i].value = 0;
 		keys[i].old_value = 0;
-		keys[i].timer_pressed = 0;
-		keys[i].timer_fixed = 0;
 	};
 	hal_led_off();
 	hal_led_number_off();
@@ -52,6 +49,12 @@ void lk_init(void)
 	timer_lk_blink_object = timer_get_object(TIMER_LK_BLINK);
 	timer_set_callback(timer_lk_blink_object, &lk_blink_tick_);
 	timer_set(timer_lk_blink_object, LK_LED_BLINK_DELAY);
+	
+	keys[0].timer_object = timer_get_object(TIMER_LK_KEY_0);
+	keys[1].timer_object = timer_get_object(TIMER_LK_KEY_1);
+	keys[2].timer_object = timer_get_object(TIMER_LK_KEY_2);
+	keys[3].timer_object = timer_get_object(TIMER_LK_KEY_3);
+	keys[4].timer_object = timer_get_object(TIMER_LK_KEY_4);
 }
 
 void lk_tick(void)
@@ -62,11 +65,12 @@ void lk_tick(void)
 	hal_led_off();
 	hal_led_number_set(number_digit);
 	if ( number_digit == NUMBER_NOT_DIGIT )
-	{
+	{	// Доп. светодиоды
 		if ( timer_lk_blink_state )	hal_led_set(digits[number_digit].value); else hal_led_set(digits[number_digit].value & ~digits[number_digit].state );
 		
-	} else
-	{
+	} 
+	else
+	{	// Цифры
 		switch ( digits[number_digit].state )
 		{
 			case LK_LED_OFF:
@@ -79,13 +83,25 @@ void lk_tick(void)
 				if ( timer_lk_blink_state ) hal_led_set(digits[number_digit].value); else hal_led_set(0);
 		};
 	};
+	// Обработка кнопок
+	uint8_t key;
+	key = hal_key_get();
+	if ( keys[number_digit].old_value != key )
+	{
+		keys[number_digit].old_value = key;
+		timer_set(keys[number_digit].timer_object, LK_KEY_DELAY);
+	}
+	else
+	{
+		if ( !(timer_get(keys[number_digit].timer_object)) ) keys[number_digit].value = key;
+	};
+	// Перезапуск таймера
 	timer_set(timer_lk_tick_object, 1);
 }
 
 void lk_set_digit(uint8_t number, uint8_t value)
 {
-	if ( number > MAX_NUMBER_DIGIT || number == NUMBER_NOT_DIGIT ) return; // Только цифры
-	digits[number].value = lk_digit_to_7code_(value);
+	if ( number <= MAX_NUMBER_DIGIT && number != NUMBER_NOT_DIGIT ) digits[number].value = lk_digit_to_7code_(value); // Только цифры
 }
 
 void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t value_3)
@@ -98,14 +114,8 @@ void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t v
 
 void lk_set_digit_state(uint8_t number, uint8_t state)
 {
-	if ( number > MAX_NUMBER_DIGIT || number == NUMBER_NOT_DIGIT ) return; // Только цифры
-	switch (state)
-	{
-		case LK_LED_OFF:
-		case LK_LED_ON:
-		case LK_LED_BLINK:
-			digits[number].state = state;
-	};
+	if ( number <= MAX_NUMBER_DIGIT && number != NUMBER_NOT_DIGIT // Только цифры
+		&& (state == LK_LED_OFF || state == LK_LED_ON || state == LK_LED_BLINK) ) digits[number].state = state;
 }
 
 void lk_set_ddot(uint8_t state)
@@ -142,8 +152,7 @@ void lk_set_alarm(uint8_t state)
 
 uint8_t lk_get_key(uint8_t number)
 {
-	if ( number > MAX_NUMBER_DIGIT ) return LK_KEY_OFF;
-	return LK_KEY_OFF;
+	return ( number <= MAX_NUMBER_DIGIT ) ? keys[number].value : LK_KEY_OFF;
 }
 
 #define DIGIT_0 SEGMENT_A*1 + SEGMENT_B*1 + SEGMENT_C*1 + SEGMENT_D*1 + SEGMENT_E*1 + SEGMENT_F*1 + SEGMENT_G*0

@@ -28,10 +28,8 @@ void lk_set_alarm(uint8_t state);
 // Состояние кнопки
 #define LK_KEY_OFF 0 // Отпущена
 #define LK_KEY_ON 1 // Нажата
-#define LK_KEY_FIXED 2 // Зафиксирована в нажатом состоянии (нажата больше чем пол секунды)
 // Задержки
-#define DELAY_RIPPLE F_CPU * 0.0001 // ~30ms
-#define DELAY_FIXED F_CPU * 0.001 // ~300ms
+#define LK_KEY_DELAY 50 // ms
 uint8_t lk_get_key(uint8_t number);
 
 #endif //BLINK_H

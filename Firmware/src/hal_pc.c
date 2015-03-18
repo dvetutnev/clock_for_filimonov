@@ -256,6 +256,8 @@ void hal_alarm_set(uint8_t value)
 	return;
 }
 
+uint8_t hal_key_get(void);
+
 // PC emulation
 static int16_t pchal_init(void)
 {

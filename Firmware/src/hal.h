@@ -57,11 +57,14 @@
 
 #define MAX_NUMBER_DIGIT 4 // Максимальный разряд, нумерация от 0
 #define NUMBER_NOT_DIGIT MAX_NUMBER_DIGIT // Последний разряд двоеточие и дополнительные светодиоды
-#define MAX_NUMBER_TIMER 4 // Максимальный таймер, нумерация от 0
+#define MAX_NUMBER_TIMER 6 // Максимальный таймер, нумерация от 0
 #define TIMER_LK_TICK 0 // Таймер для callback lk
 #define TIMER_LK_BLINK 1 // Таймер мигания активных разрядов
-#define TIMER_LK_KEY_RIPPLE 2 // Таймер подавления дребезга кнопок
-#define TIMER_LK_KEY_FIXED 3 // Таймер зажатой кнопки
+#define TIMER_LK_KEY_0 2 // Таймер подавления дребезга кнопок
+#define TIMER_LK_KEY_1 3
+#define TIMER_LK_KEY_2 4
+#define TIMER_LK_KEY_3 5
+#define TIMER_LK_KEY_4 6
 
 #define KEY_PIN 3
 #define KEY_PORT PIND

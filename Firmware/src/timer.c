@@ -23,16 +23,15 @@ void timer_init(void)
 	hal_timer_init(&timer_tick);
 }
 
-void lk_tick(void);
 void timer_tick(void)
 {
-	lk_tick();
 	for (uint8_t i = 0; i < MAX_NUMBER_TIMER; i++)
 	{
 		if ( timer_objects[i].value > 0 )
 		{
 			timer_objects[i].value--;
-		} else
+		} 
+		else
 		{
 			if ( timer_objects[i].callback != NULL ) timer_objects[i].callback();
 		};
@@ -41,24 +40,20 @@ void timer_tick(void)
 
 timer_object_t timer_get_object(uint8_t number)
 {
-	if ( number > MAX_NUMBER_TIMER ) return NULL;
-	return &timer_objects[number];
+	return ( number <= MAX_NUMBER_TIMER ) ? &timer_objects[number] : NULL;
 }
 
 void timer_set_callback(timer_object_t self, void (*callback)(void))
 {
-	if ( self == NULL ) return;
-	self->callback = callback;
+	if ( self != NULL ) self->callback = callback;
 }
 
 void timer_set(timer_object_t self, uint16_t value)
 {
-	if ( self == NULL ) return;
-	self->value = value;
+	if ( self != NULL ) self->value = value;
 }
 
 uint16_t timer_get(timer_object_t self)
 {
-	if ( self == NULL ) return 0;
-	return self->value;
+	return ( self != NULL ) ? self->value : 0;
 }
