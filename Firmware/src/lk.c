@@ -50,7 +50,7 @@ void lk_init(void)
 	timer_lk_blink_object = timer_get_object(TIMER_LK_BLINK);
 	timer_set_callback(timer_lk_blink_object, &lk_blink_tick_);
 	timer_set(timer_lk_blink_object, LK_LED_BLINK_DELAY);
-	
+
 	keys[0].timer_object = timer_get_object(TIMER_LK_KEY_0);
 	keys[1].timer_object = timer_get_object(TIMER_LK_KEY_1);
 	keys[2].timer_object = timer_get_object(TIMER_LK_KEY_2);

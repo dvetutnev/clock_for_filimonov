@@ -27,14 +27,8 @@ void timer_tick(void)
 {
 	for (uint8_t i = 0; i < MAX_NUMBER_TIMER; i++)
 	{
-		if ( timer_objects[i].value > 0 )
-		{
-			timer_objects[i].value--;
-		} 
-		else
-		{
-			if ( timer_objects[i].callback != NULL ) timer_objects[i].callback();
-		};
+		if ( timer_objects[i].value > 0 ) timer_objects[i].value--;
+			else if ( timer_objects[i].callback != NULL ) timer_objects[i].callback();
 	};
 }
 

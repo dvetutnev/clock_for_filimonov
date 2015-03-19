@@ -11,10 +11,10 @@ void rtc_get(rtc_time_t *time)
 {
 	if ( time == NULL ) return;
 	#ifdef DS1307
-	uint8_t hour, minute, second;
 	hal_iic_start(IIC_ADDRESS+IIC_WRITE);
 	hal_iic_write(0);
 	hal_iic_rep_start(IIC_ADDRESS+IIC_READ);
+	uint8_t hour, minute, second;
 	second = hal_iic_read_ack();
 	minute = hal_iic_read_ack();
 	hour = hal_iic_read_nak();
