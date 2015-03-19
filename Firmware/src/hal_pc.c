@@ -18,62 +18,28 @@ static SDL_Renderer *renderer;
 static uint8_t number_digit = 0;
 static uint8_t alarm_state = 0;
 static uint8_t digits[MAX_NUMBER_DIGIT + 1];
+static uint8_t keys[MAX_NUMBER_DIGIT + 1];
 static void (*timer_callback)(void) = NULL;
 
 // Interface
 void hal_init(void)
 {
-	uint8_t i;
 	if ( pchal_init() != 0 ) exit(1);
-	for ( i = 0; i <= MAX_NUMBER_DIGIT; i++ ) digits[i] = 0;
+	for ( uint8_t i = 0; i <= MAX_NUMBER_DIGIT; i++ )
+	{
+		digits[i] = 0;
+		keys[i] = 0;
+	};
 }
 
 void hal_timer_init(void (*callback)(void))
 {
 	timer_callback = callback;
-	return;
 }
+
 void hal_led_off(void)
 {
 	return;
-	int16_t offset_x, offset_y;
-	pchal_getoffset (number_digit, &offset_x, &offset_y);
-	if ( number_digit == NUMBER_NOT_DIGIT ) return;
-	if ( (digits[number_digit] & SEGMENT_A) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_A;
-		pchal_set_segment('a', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_B) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_B;
-		pchal_set_segment('b', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_C) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_C;
-		pchal_set_segment('c', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_D) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_D;
-		pchal_set_segment('d', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_E) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_E;
-		pchal_set_segment('e', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_F) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_F;
-		pchal_set_segment('f', 0, offset_x, offset_y);
-	};
-	if ( (digits[number_digit] & SEGMENT_G) != 0 )
-	{
-		digits[number_digit] &= ~SEGMENT_G;
-		pchal_set_segment('g', 0, offset_x, offset_y);
-	};
 }
 
 void hal_led_set(uint8_t value)
@@ -228,7 +194,6 @@ void hal_led_number_off(void)
 void hal_led_number_set(uint8_t value)
 {
 	if ( value <= MAX_NUMBER_DIGIT ) number_digit = value;
-	return;
 }
 
 void hal_alarm_set(uint8_t value)
@@ -253,10 +218,12 @@ void hal_alarm_set(uint8_t value)
 		// Restore color
 		SDL_SetRenderDrawColor (renderer, r, g, b, a);
 	};
-	return;
 }
 
-uint8_t hal_key_get(void);
+uint8_t hal_key_get(void)
+{
+	return keys[number_digit];
+}
 
 // PC emulation
 static int16_t pchal_init(void)
@@ -407,11 +374,12 @@ static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y
 	{
 		*offset_x = 0;
 		*offset_y = 0;
-		return;
+	}
+	else
+	{
+		*offset_x = digits_offset[number].offset_x;
+		*offset_y = digits_offset[number].offset_y;
 	};
-	*offset_x = digits_offset[number].offset_x;
-	*offset_y = digits_offset[number].offset_y;
-	return;
 }
 
 
@@ -504,7 +472,6 @@ uint8_t hal_iic_read_nak(void)
 }
 
 //tick
-//static uint32_t pchal_tick(uint32_t interval, void *param)
 void pchal_tick(void)
 {
 	static uint32_t t = 0;
@@ -514,22 +481,40 @@ void pchal_tick(void)
 	t = tc;
 	SDL_Event event;
 	if ( timer_callback != NULL ) timer_callback();
-	//printf("offset: %d\n", pchal_time_offset);
 	while ( SDL_PollEvent(&event) )
 	{
-		//printf("SDL Event, SDL tick: %d\n", SDL_GetTicks());
 		if ( event.type == SDL_QUIT )
 		{
 			SDL_Quit();
 			exit(0);
 		};
-		if ( event.type == SDL_KEYDOWN)
+		if ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP)
 		{
-			printf("Keydown\n");
-			//switch ( event.key.keysym.sym )
-			
+			printf("Key: ");
+			switch (event.key.keysym.sym)
+			{
+				case SDLK_1:
+					if ( event.type == SDL_KEYDOWN ) { keys[0] = 1; printf("1 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[0] = 0; printf("1 up\n"); };
+					break;
+				case SDLK_2:
+					if ( event.type == SDL_KEYDOWN ) { keys[1] = 1; printf("2 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[1] = 0; printf("2 up\n"); };
+					break;
+				case SDLK_3:
+					if ( event.type == SDL_KEYDOWN ) { keys[2] = 1; printf("3 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[2] = 0; printf("3 up\n"); };
+					break;
+				case SDLK_4:
+					if ( event.type == SDL_KEYDOWN ) { keys[3] = 1; printf("4 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[3] = 0; printf("4 up\n"); };
+					break;
+				case SDLK_5:
+					if ( event.type == SDL_KEYDOWN ) { keys[4] = 1; printf("5 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[4] = 0; printf("5 up\n"); };
+					break;
+			};
 		};
 	}
-	//SDL_AddTimer((33/10)*10, &pchal_tick, NULL);
 	return;
 }

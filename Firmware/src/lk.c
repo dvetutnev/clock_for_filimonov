@@ -1,5 +1,4 @@
 ﻿//LED and key module
-
 #include <stdint.h>
 #include "lk.h"
 #include "timer.h"
@@ -15,6 +14,7 @@ static uint8_t lk_digit_to_7code_(uint8_t value); // Преобразовани�
 static void lk_set_aled_state_(uint8_t bits, uint8_t state); // Установка состояния доп.светодиодов, общая
 static void lk_blink_tick_(void); // Callback таймера мигания
 
+// Разряды
 typedef struct
 {
 	uint8_t value;
@@ -22,10 +22,11 @@ typedef struct
 } digit_t;
 static digit_t digits[MAX_NUMBER_DIGIT + 1];
 
+// Кнопки
 typedef struct
 {
-	uint8_t value;
-	uint8_t old_value;
+	uint8_t value:1;
+	uint8_t old_value:1;
 	timer_object_t timer_object;
 } key_t;
 static key_t keys[MAX_NUMBER_DIGIT + 1];
@@ -67,7 +68,6 @@ void lk_tick(void)
 	if ( number_digit == NUMBER_NOT_DIGIT )
 	{	// Доп. светодиоды
 		if ( timer_lk_blink_state )	hal_led_set(digits[number_digit].value); else hal_led_set(digits[number_digit].value & ~digits[number_digit].state );
-		
 	} 
 	else
 	{	// Цифры
@@ -91,10 +91,7 @@ void lk_tick(void)
 		keys[number_digit].old_value = key;
 		timer_set(keys[number_digit].timer_object, LK_KEY_DELAY);
 	}
-	else
-	{
-		if ( !(timer_get(keys[number_digit].timer_object)) ) keys[number_digit].value = key;
-	};
+	else if ( !(timer_get(keys[number_digit].timer_object)) ) keys[number_digit].value = key;
 	// Перезапуск таймера
 	timer_set(timer_lk_tick_object, 1);
 }

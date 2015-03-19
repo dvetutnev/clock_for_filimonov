@@ -5,7 +5,6 @@
 // Interface
 void lk_init(void); // Инициализация
 void lk_tick(void); // callback тик от таймера
-
 // Цифры, нумерация с нуля
 void lk_set_digit(uint8_t number, uint8_t value); // Вывести одну цифру
 void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t value_3); // вывести 4 цифры
@@ -18,7 +17,6 @@ void lk_set_digit_state(uint8_t number, uint8_t state);
 void lk_set_ddot(uint8_t state);
 void lk_set_aled(uint8_t number, uint8_t state); 
 void lk_set_alarm(uint8_t state);
-
 // Кнопки
 #define LK_KEY_UP 0
 #define LK_KEY_DOWN 1

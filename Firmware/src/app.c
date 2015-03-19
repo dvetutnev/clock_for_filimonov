@@ -38,6 +38,9 @@ void app_run(void)
 	pchal_tick();
 	#endif //PC_BUILD
 	rtc_get(&current_time);
+	if ( lk_get_key(0) == LK_KEY_ON ) lk_set_aled(1, LK_LED_ON);
+	if ( lk_get_key(1) == LK_KEY_ON ) lk_set_aled(1, LK_LED_OFF);
+	if ( lk_get_key(3) == LK_KEY_ON )  lk_set_aled(2, LK_LED_ON); else lk_set_aled(2, LK_LED_OFF);
 	if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
 	if ( current_time.second & 0x01 ) lk_set_alarm(LK_LED_ON); else lk_set_alarm(LK_LED_OFF);
 	lk_set_4digits(current_time.hour_10, current_time.hour, current_time.minute_10, current_time.minute);
