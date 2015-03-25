@@ -4,7 +4,9 @@
 #include "lk.h"
 #include "rtc.h"
 
-rtc_time_t current_time, alarm_time;
+//rtc_time_t current_time, alarm_time;
+rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
+rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
 
 void app_init(void)
 {
@@ -12,21 +14,7 @@ void app_init(void)
 	timer_init();
 	lk_init();
 	rtc_init();
-	
-	alarm_time.hour_10 = 0;
-	alarm_time.hour = 0;
-	alarm_time.minute_10 = 0;
-	alarm_time.minute = 0;
-	alarm_time.second_10 = 0;
-	alarm_time.second = 0;
-	
-	current_time.hour_10 = 0;
-	current_time.hour = 0;
-	current_time.minute_10 = 0;
-	current_time.minute = 0;
-	current_time.second_10 = 0;
-	current_time.second = 0;
-	
+
 	//rtc_set(&current_time);
 	lk_set_aled(0, LK_LED_BLINK);
 	lk_set_digit_state(0, LK_LED_BLINK);

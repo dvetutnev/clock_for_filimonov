@@ -10,7 +10,7 @@ SET(COPT "-Os")
 #SET(CDEBUG "-gdwarf-2")
 SET(CDEBUG "")
 SET(CWARN "-Wall -Wstrict-prototypes -Wundef")
-#SET(CTUNING "-funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums")
+SET(CTUNING "-funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums")
 SET(CTUNING "")
 
 SET(CFLAGS "${CSTANDARD} ${COPT} ${CDEBUG} ${CWARN} ${CTUNING}")
