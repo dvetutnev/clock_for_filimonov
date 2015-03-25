@@ -37,8 +37,7 @@ void lk_init(void)
 	{
 		digits[i].state = LK_LED_ON;
 		digits[i].value = 0;
-		keys[i].value = 0;
-		keys[i].old_value = 0;
+		keys[i].value = keys[i].old_value = 0;
 		keys[i].timer_object = timer_get_object(TIMER_LK_KEY_0 + i);
 	};
 	hal_led_off();

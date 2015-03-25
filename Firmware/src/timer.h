@@ -12,11 +12,4 @@ void timer_set_callback(timer_object_t self, void (*callback)(void));
 void timer_set(timer_object_t self, uint16_t value);
 uint16_t timer_get(timer_object_t self);
 
-/*
-void timer_init(void);
-void timer_getobject
-
-void timer_set
-void timer_get
-*/
 #endif //TIMER_H
