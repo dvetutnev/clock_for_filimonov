@@ -33,12 +33,25 @@ void rtc_set_alarm(const rtc_time_t* time)
 
 uint8_t rtc_get_alarm_state(void)
 {
-	return 1;
+	uint8_t ret = 0;
+	#ifdef DS1307
+	hal_iic_start(IIC_ADDRESS+IIC_WRITE);
+	hal_iic_write(IIC_ALARM_STATE_OFFSET);
+	hal_iic_rep_start(IIC_ADDRESS+IIC_READ);
+	ret = hal_iic_read_nak();
+	hal_iic_stop();
+	#endif //DS1307
+	return ret;
 }
 
 void rtc_set_alarm_state(const uint8_t state)
 {
-	return;
+	#ifdef DS1307
+	hal_iic_start(IIC_ADDRESS + IIC_WRITE);
+	hal_iic_write(IIC_ALARM_STATE_OFFSET);
+	hal_iic_write(state);
+	hal_iic_stop();
+	#endif //DS1307
 }
 
 static void rtc_get_time_(const uint8_t address, rtc_time_t* time)
