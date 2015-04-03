@@ -5,10 +5,9 @@
 #include "lk.h"
 #include "rtc.h"
 
-rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
-rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
-uint8_t alarm_state = 0;
-//static void time_hour
+static rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
+static rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
+static uint8_t alarm_state = 0;
 
 // FSM 
 enum fsm_signals {NONE = 0, MODE, MODE_FIX, MODE_A, MODE_A_FIX, UP, DOWN, ALARM_ON, ALARM_OFF, LIST_ON, LIST_OFF};
