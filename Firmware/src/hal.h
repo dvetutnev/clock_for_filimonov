@@ -2,6 +2,8 @@
 #ifndef HAL_H
 #define HAL_H
 
+//#define NULL null
+
 #define SEGMENT_A 0x80
 #define SEGMENT_A_PIN 6
 #define SEGMENT_A_PORT PORTB
@@ -64,7 +66,12 @@
 #define TIMER_LK_KEY_2 4
 #define TIMER_LK_KEY_3 5
 #define TIMER_LK_KEY_4 6
-#define MAX_NUMBER_TIMER 2 + MAX_NUMBER_DIGIT// Максимальный таймер, нумерация от 0
+#define TIMER_APP_KEY_0 7
+#define TIMER_APP_KEY_1 8
+#define TIMER_APP_KEY_2 9
+#define TIMER_APP_KEY_3 10
+#define TIMER_APP_KEY_4 11
+#define MAX_NUMBER_TIMER 11// Максимальный таймер, нумерация от 0
 
 #define KEY_PIN 3
 #define KEY_PORT PIND
@@ -96,9 +103,11 @@ uint8_t hal_iic_write(uint8_t data);
 uint8_t hal_iic_read_ack(void);
 uint8_t hal_iic_read_nak(void);
 uint8_t hal_iic_read(uint8_t ack);
-#define hal_iic_read(ack)  (ack) ? hal_iic_read_ack() : hal_iic_read_nak(); 
+//#define hal_iic_read(ack)  (ack) ? hal_iic_read_ack() : hal_iic_read_nak(); 
 
 //for pc build
+#ifdef PC_BUILD
 void pchal_tick(void);
+#endif //PC_BUILD
 
 #endif // HAL_H

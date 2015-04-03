@@ -24,5 +24,7 @@ typedef struct
 void rtc_init(void);
 void rtc_get(rtc_time_t *time);
 void rtc_set(const rtc_time_t *time);
+void rtc_get_alarm(rtc_time_t *time);
+void rtc_set_alarm(const rtc_time_t *time);
 
 #endif //RTC_H

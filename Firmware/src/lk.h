@@ -28,6 +28,8 @@ void lk_set_alarm(uint8_t state);
 #define LK_KEY_ON 1U // Нажата
 // Задержки
 #define LK_KEY_DELAY 50U // ms
+#define LK_KEY_FIX 700U // ms
+#define LK_KEY_REPEAT 400U // ms
 uint8_t lk_get_key(uint8_t number);
 
 #endif //BLINK_H

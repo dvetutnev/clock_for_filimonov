@@ -385,7 +385,7 @@ static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y
 
 //rtc
 static uint8_t pchal_tc = 0;
-static int32_t pchal_time_offset = 0;
+static int32_t pchal_time_offset = 60;
 void hal_iic_init(void)
 {
 	return;

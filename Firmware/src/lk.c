@@ -1,5 +1,6 @@
 ﻿//LED and key module
 #include <stdint.h>
+#include <stdlib.h>
 #include "lk.h"
 #include "timer.h"
 #include "hal.h"
@@ -33,7 +34,7 @@ static key_t keys[MAX_NUMBER_DIGIT + 1];
 
 void lk_init(void)
 {
-	for (uint8_t i = 0; i < MAX_NUMBER_DIGIT; i++)
+	for (uint8_t i = 0; i <= MAX_NUMBER_DIGIT; i++)
 	{
 		digits[i].state = LK_LED_ON;
 		digits[i].value = 0;

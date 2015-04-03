@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdlib.h>
 #include "rtc.h"
 #include "hal.h"
 
@@ -39,4 +40,14 @@ void rtc_set(const rtc_time_t *time)
 	hal_iic_write( (time->hour_10 << 4) | time->hour );
 	hal_iic_stop();
 	#endif //DS1307
+}
+
+void rtc_get_alarm(rtc_time_t *time)
+{
+	return;
+}
+
+void rtc_set_alarm(const rtc_time_t *time)
+{
+	return;
 }

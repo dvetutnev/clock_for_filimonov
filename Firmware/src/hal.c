@@ -51,6 +51,11 @@ void hal_init(void)
 	return;
 }
 
+void hal_timer_init(void (*callback)(void))
+{
+	return;
+}
+
 void hal_led_off(void)
 {
 	SEGMENT_A_PORT &= ~_BV (SEGMENT_A_PIN);
@@ -128,5 +133,50 @@ void lk_tick(void);
 ISR (TIMER0_OVF_vect)
 {
 	lk_tick();
+}
+
+void hal_iic_init(void)
+{
+	return;
+}
+
+void hal_iic_stop(void)
+{
+	return;
+}
+
+uint8_t hal_iic_start(uint8_t addr)
+{
+	return 0;
+}
+
+uint8_t hal_iic_rep_start(uint8_t addr)
+{
+	return 0;
+}
+
+void hal_iic_start_wait(uint8_t addr)
+{
+	return;
+}
+
+uint8_t hal_iic_write(uint8_t data)
+{
+	return 0;
+}
+
+uint8_t hal_iic_read_ack(void)
+{
+	return 0;
+}
+
+uint8_t hal_iic_read_nak(void)
+{
+	return 0;
+}
+
+uint8_t hal_iic_read(uint8_t ack)
+{
+	return 0;
 }
 

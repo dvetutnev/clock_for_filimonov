@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <stdlib.h>
 #include "hal.h"
 #include "timer.h"
 
@@ -15,7 +16,7 @@ static struct timer_object timer_objects[MAX_NUMBER_TIMER+1];
 
 void timer_init(void)
 {
-	for (uint8_t i = 0; i < MAX_NUMBER_TIMER; i++)
+	for (uint8_t i = 0; i <= MAX_NUMBER_TIMER; i++)
 	{
 		timer_objects[i].value = 0;
 		timer_objects[i].callback = NULL;
