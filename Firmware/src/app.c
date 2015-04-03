@@ -117,7 +117,6 @@ void app_init(void)
 	rtc_init();
 	rtc_get(&current_time);
 	rtc_get_alarm(&alarm_time);
-	//fsm_worker_set_normal(NORMAL, NONE);
 }
 
 void app_run(void)
@@ -132,7 +131,6 @@ void app_run(void)
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code
 	if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
-	//rtc_get(&current_time);
 	//if ( fsm_state == NORMAL )  lk_set_aled(2, LK_LED_ON); else lk_set_aled(2, LK_LED_OFF);
 	if ( fsm_state == MIN )  lk_set_aled(0, LK_LED_ON); else lk_set_aled(0, LK_LED_OFF);
 	if ( fsm_state == HOUR )  lk_set_aled(1, LK_LED_ON); else lk_set_aled(1, LK_LED_OFF);
@@ -264,11 +262,26 @@ static void fsm_worker_change_time_min(rtc_time_t* time, enum fsm_signals signal
 		time->minute++;
 		if ( time->minute >= 10 ) { time->minute = 0; time->minute_10++; };
 		if ( time->minute_10 >= 6 ) { time->minute = 0; time->minute_10 = 0; fsm_worker_change_time_hour(time, UP); };
-	} else if ( signal == DOWN )
+	}
+	else if ( signal == DOWN )
 	{
-		time->minute--;
-		if ( time->minute < 0 ) { time->minute = 9; time->minute_10--; };
-		if ( time->minute_10 < 0 ) { time->minute_10 = 5; fsm_worker_change_time_hour(time, DOWN); };
+		if ( time->minute != 0 )
+		{
+			time->minute--;
+		}
+		else
+		{
+			time->minute = 9;
+			if ( time->minute_10 != 0 )
+			{
+				time->minute_10--;
+			}
+			else
+			{
+				time->minute_10 = 5;
+				fsm_worker_change_time_hour(time, DOWN);
+			};
+		};
 	};
 }
 
@@ -279,10 +292,25 @@ static void fsm_worker_change_time_hour(rtc_time_t* time, enum fsm_signals signa
 		time->hour++;
 		if ( time->hour >= 10 ) { time->hour = 0; time->hour_10++; };
 		if ( time->hour_10 >= 2 && time->hour >= 4 ) { time->hour = 0; time->hour_10 = 0; };
-	} else if ( signal == DOWN )
+	}
+	else if ( signal == DOWN )
 	{
-		time->hour--;
-		if ( time->hour < 0 ) { time->hour = 9; time->hour_10--; };
-		if ( time->hour_10 < 0 ) { time->hour = 3; time->hour_10 = 2; };
+		if ( time->hour != 0 )
+		{
+			time->hour--;
+		}
+		else
+		{
+			time->hour = 9;
+			if ( time->hour_10 != 0 )
+			{
+				time->hour_10--;
+			}
+			else
+			{
+				time->hour = 3;
+				time->hour_10 = 2;
+			};
+		};
 	};
 }
