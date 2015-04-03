@@ -26,5 +26,7 @@ void rtc_get(rtc_time_t *time);
 void rtc_set(const rtc_time_t *time);
 void rtc_get_alarm(rtc_time_t *time);
 void rtc_set_alarm(const rtc_time_t *time);
+uint8_t rtc_get_alarm_state(void);
+void rtc_set_alarm_state(const uint8_t state);
 
 #endif //RTC_H

@@ -51,3 +51,13 @@ void rtc_set_alarm(const rtc_time_t *time)
 {
 	return;
 }
+
+uint8_t rtc_get_alarm_state(void)
+{
+	return 1;
+}
+
+void rtc_set_alarm_state(const uint8_t state)
+{
+	return;
+}

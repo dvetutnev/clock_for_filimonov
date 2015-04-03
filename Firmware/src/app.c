@@ -7,6 +7,7 @@
 
 rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
 rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
+uint8_t alarm_state = 0;
 //static void time_hour
 
 // FSM 
@@ -117,6 +118,7 @@ void app_init(void)
 	rtc_init();
 	rtc_get(&current_time);
 	rtc_get_alarm(&alarm_time);
+	alarm_state = rtc_get_alarm_state();
 }
 
 void app_run(void)
