@@ -385,7 +385,7 @@ static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y
 
 //rtc
 static uint8_t pchal_tc = 0;
-static int32_t pchal_time_offset = 60;
+static int32_t pchal_time_offset = 0;
 void hal_iic_init(void)
 {
 	return;
@@ -414,12 +414,9 @@ void hal_iic_start_wait(uint8_t addr)
 
 uint8_t hal_iic_write(uint8_t data)
 {
-	struct tm *tp;
-	time_t t;
 	int32_t offset;
-	tp = NULL;
-	t = time(NULL);
-	tp = localtime(&t);
+	time_t t = time(NULL);
+	struct tm* tp = localtime(&t);
 	offset = (data >> 4) * 10 + (data & 0xf);
 	switch ( pchal_tc )
 	{
@@ -443,12 +440,9 @@ uint8_t hal_iic_write(uint8_t data)
 
 uint8_t hal_iic_read_ack(void)
 {
-	struct tm *tp;
-	time_t t;
 	uint8_t ret;
-	tp = NULL;
-	t = time(NULL) + pchal_time_offset;
-	tp = localtime(&t);
+	time_t t = time(NULL) + pchal_time_offset;
+	struct tm* tp = localtime(&t);
 	switch ( pchal_tc )
 	{
 		case 1:
