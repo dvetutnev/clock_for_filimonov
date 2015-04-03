@@ -414,10 +414,10 @@ void hal_iic_start_wait(uint8_t addr)
 
 uint8_t hal_iic_write(uint8_t data)
 {
-	int32_t offset;
 	time_t t = time(NULL);
 	struct tm* tp = localtime(&t);
-	offset = (data >> 4) * 10 + (data & 0xf);
+	static int32_t offset_ = 0;
+	int32_t offset = (data >> 4) * 10 + (data & 0xf);
 	switch ( pchal_tc )
 	{
 		case 1:
@@ -431,9 +431,14 @@ uint8_t hal_iic_write(uint8_t data)
 			offset -= tp->tm_hour;
 			offset *= 3600;
 			break;
-		default : break;
+		default:
+			offset_ = 0;
+			pchal_tc++;
+			return 0;
 	};
-	pchal_time_offset += offset;
+	offset_ += offset;
+	printf("%d\n", offset);
+	if ( pchal_tc == 3 ) pchal_time_offset = offset_;
 	pchal_tc++;
 	return 0;
 }
@@ -454,7 +459,8 @@ uint8_t hal_iic_read_ack(void)
 		case 3:
 			ret = ( (uint8_t)(tp->tm_hour / 10) << 4 ) | tp->tm_hour % 10;
 			break;
-		default : ret = 0;
+		default:
+			ret = 0;
 	};
 	pchal_tc++;
 	return ret;
