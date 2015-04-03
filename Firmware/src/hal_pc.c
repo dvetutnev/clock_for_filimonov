@@ -384,8 +384,14 @@ static void pchal_getoffset(uint8_t number, int16_t *offset_x, int16_t *offset_y
 
 
 //rtc
+static uint8_t pchal_iic_address = 0;
 static uint8_t pchal_tc = 0;
 static int32_t pchal_time_offset = 0;
+static uint8_t as = 0;
+static uint8_t am = 3;
+static uint8_t ah = 2;
+static uint8_t astate = 1;
+
 void hal_iic_init(void)
 {
 	return;
@@ -418,51 +424,78 @@ uint8_t hal_iic_write(uint8_t data)
 	struct tm* tp = localtime(&t);
 	static int32_t offset_ = 0;
 	int32_t offset = (data >> 4) * 10 + (data & 0xf);
-	switch ( pchal_tc )
+
+	if ( pchal_tc == 0 ) pchal_iic_address = data;
+	switch (pchal_iic_address)
 	{
-		case 1:
-			offset -= tp->tm_sec ;
-			break;
-		case 2:
-			offset -= tp->tm_min;
-			offset *= 60;
-			break;
-		case 3:
-			offset -= tp->tm_hour;
-			offset *= 3600;
-			break;
-		default:
-			offset_ = 0;
+		case 0: //Часы
+			switch ( pchal_tc )
+			{
+				case 1:	offset -= tp->tm_sec; break;
+				case 2: offset -= tp->tm_min; offset *= 60;	break;
+				case 3:	offset -= tp->tm_hour; offset *= 3600; break;
+				default: offset_ = 0; pchal_tc++; return 0;
+			};
+			offset_ += offset;
+			if ( pchal_tc == 3 ) pchal_time_offset = offset_;
 			pchal_tc++;
-			return 0;
+			break;
+		case 0x08: //Будильник
+			switch ( pchal_tc )
+			{
+				case 1:	as = data; break;
+				case 2: am = data; break;
+				case 3:	ah = data; break;
+				default: break;
+			};
+			pchal_tc++;
+			break;
+		case 0x0b: //Разрешение будильника
+			switch ( pchal_tc )
+			{
+				case 1:	astate = data; break;
+			};
+			pchal_tc++;
+			break;
 	};
-	offset_ += offset;
-	printf("%d\n", offset);
-	if ( pchal_tc == 3 ) pchal_time_offset = offset_;
-	pchal_tc++;
 	return 0;
 }
 
 uint8_t hal_iic_read_ack(void)
 {
-	uint8_t ret;
+	uint8_t ret = 0;
 	time_t t = time(NULL) + pchal_time_offset;
 	struct tm* tp = localtime(&t);
-	switch ( pchal_tc )
+	switch ( pchal_iic_address )
 	{
-		case 1:
-			ret = ( (uint8_t)(tp->tm_sec / 10) << 4 ) | tp->tm_sec % 10;
+		case 0:
+			switch ( pchal_tc )
+			{
+				case 1:	ret = ( (uint8_t)(tp->tm_sec / 10) << 4 ) | tp->tm_sec % 10; break;
+				case 2:	ret = ( (uint8_t)(tp->tm_min / 10) << 4 ) | tp->tm_min % 10; break;
+				case 3:	ret = ( (uint8_t)(tp->tm_hour / 10) << 4 ) | tp->tm_hour % 10; break;
+				default: ret = 0;
+			};
+			pchal_tc++;
 			break;
-		case 2:
-			ret = ( (uint8_t)(tp->tm_min / 10) << 4 ) | tp->tm_min % 10;
+		case 0x08:
+			switch ( pchal_tc )
+			{
+				case 1:	ret = as; break;
+				case 2:	ret = am; break;
+				case 3:	ret = ah; break;
+				default: ret = 0;
+			};
+			pchal_tc++;
 			break;
-		case 3:
-			ret = ( (uint8_t)(tp->tm_hour / 10) << 4 ) | tp->tm_hour % 10;
+		case 0x0b:
+			switch ( pchal_tc )
+			{
+				case 1:	ret = astate; break;
+			};
+			pchal_tc++;
 			break;
-		default:
-			ret = 0;
 	};
-	pchal_tc++;
 	return ret;
 }
 
