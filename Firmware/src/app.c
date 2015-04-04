@@ -164,7 +164,11 @@ static enum fsm_signals fsm_get_signal(void)
 		alarm_time.second_10 == current_time.second_10 && alarm_time.second == current_time.second &&
 		alarm_state.enable == 1 && alarm_state.work == 0 ) return ALARM_ON;
 	if ( alarm_state.end == 1 && alarm_state.work == 1 ) return ALARM_OFF;
-	
+
+	if ( list_time.hour_10 == current_time.hour_10 && list_time.hour == current_time.hour &&
+		list_time.minute_10 == current_time.minute_10 && list_time.minute == current_time.minute &&
+		list_time.second_10 == current_time.second_10 && list_time.second == current_time.second &&
+		list_state.work == 0 ) return ALARM_ON;
 	if ( list_state.end == 1 && list_state.work == 1 ) return LIST_OFF;
 	
 	for (uint8_t i = 0; i <= MAX_NUMBER_DIGIT; i++)
@@ -383,7 +387,7 @@ static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 	static uint8_t d0, d1, d2, d3;
 	if ( timer_get(timer_get_object(TIMER_APP_LIST)) == 0 )
 	{
-		timer_set(timer_get_object(TIMER_APP_LIST), 50);
+		timer_set(timer_get_object(TIMER_APP_LIST), 100);
 		if ( d0 < 9 )
 		{
 			d0++; list_time.minute++;
@@ -409,9 +413,10 @@ static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 		{
 			list_state.end = 1;
 			d0 = d1 = d2 = d3 = 0;
+			rtc_get(&list_time);
+			fsm_worker_change_time_hour(&list_time, UP);
 			list_time.minute_10 = random_ubyte_in(0, 5);
 			list_time.minute = random_ubyte_in(0, 9);
-			printf("rnd: %d %d\n", list_time.minute_10, list_time.minute);
 		};
 	};
 }
