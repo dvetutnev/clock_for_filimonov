@@ -4,6 +4,7 @@
 #include "timer.h"
 #include "lk.h"
 #include "rtc.h"
+#include "random.h"
 
 #include <stdio.h>
 
@@ -382,7 +383,7 @@ static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 	static uint8_t d0, d1, d2, d3;
 	if ( timer_get(timer_get_object(TIMER_APP_LIST)) == 0 )
 	{
-		timer_set(timer_get_object(TIMER_APP_LIST), 100);
+		timer_set(timer_get_object(TIMER_APP_LIST), 50);
 		if ( d0 < 9 )
 		{
 			d0++; list_time.minute++;
@@ -408,8 +409,10 @@ static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 		{
 			list_state.end = 1;
 			d0 = d1 = d2 = d3 = 0;
+			list_time.minute_10 = random_ubyte_in(0, 5);
+			list_time.minute = random_ubyte_in(0, 9);
+			printf("rnd: %d %d\n", list_time.minute_10, list_time.minute);
 		};
-		printf("list: %d %d %d %d\n", d0, d1, d2, d3);
 	};
 }
 
