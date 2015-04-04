@@ -131,8 +131,9 @@ void app_run(void)
 	if ( fsm[fsm_state][fsm_signal].worker != NULL ) fsm[fsm_state][fsm_signal].worker(fsm_state, fsm_signal);
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code
-	if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
-	//if ( fsm_state == NORMAL )  lk_set_aled(2, LK_LED_ON); else lk_set_aled(2, LK_LED_OFF);
+	//if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
+	if ( alarm_state == 0 && fsm_state != MIN_A && fsm_state != HOUR_A )  lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
+	
 	if ( fsm_state == MIN )  lk_set_aled(0, LK_LED_ON); else lk_set_aled(0, LK_LED_OFF);
 	if ( fsm_state == HOUR )  lk_set_aled(1, LK_LED_ON); else lk_set_aled(1, LK_LED_OFF);
 }
@@ -164,6 +165,8 @@ static enum fsm_signals fsm_get_signal(void)
 					signal = MODE_A; break;
 				case LK_KEY_ALARM_ENABLE:
 					signal = ALARM_OFF;
+					alarm_state = ~alarm_state;
+					rtc_set_alarm_state(alarm_state);
 					break;
 				default:
 					signal = NONE;
@@ -195,13 +198,14 @@ static void fsm_worker_set_normal(enum fsm_states state, enum fsm_signals signal
 {
 	lk_set_digit_state(0, LK_LED_ON); lk_set_digit_state(1, LK_LED_ON); lk_set_digit_state(2, LK_LED_ON); lk_set_digit_state(3, LK_LED_ON);
 	lk_set_alarm(LK_LED_OFF);
-	lk_set_aled(2, LK_LED_OFF); //Индикация настройки будильника
+	//lk_set_aled(2, LK_LED_OFF); //Индикация настройки будильника
 }
 
 static void fsm_worker_normal(enum fsm_states state, enum fsm_signals signal)
 {
 	rtc_get(&current_time);
 	lk_set_4digits(current_time.hour_10, current_time.hour, current_time.minute_10, current_time.minute);
+	if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
 }
 
 static void fsm_worker_set_mode(enum fsm_states state, enum fsm_signals signal)

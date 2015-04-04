@@ -79,8 +79,7 @@ void lk_tick(void)
 		};
 	};
 	// Обработка кнопок
-	uint8_t key;
-	key = hal_key_get();
+	uint8_t key = hal_key_get();
 	if ( keys[number_digit].old_value != key )
 	{
 		keys[number_digit].old_value = key;
@@ -98,10 +97,7 @@ void lk_set_digit(uint8_t number, uint8_t value)
 
 void lk_set_4digits(uint8_t value_0, uint8_t value_1, uint8_t value_2, uint8_t value_3)
 {
-	lk_set_digit(0, value_0);
-	lk_set_digit(1, value_1);
-	lk_set_digit(2, value_2);
-	lk_set_digit(3, value_3);
+	lk_set_digit(0, value_0); lk_set_digit(1, value_1);	lk_set_digit(2, value_2); lk_set_digit(3, value_3);
 }
 
 void lk_set_digit_state(uint8_t number, uint8_t state)
