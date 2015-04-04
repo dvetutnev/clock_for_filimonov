@@ -145,6 +145,7 @@ void app_run(void)
 	static enum fsm_states fsm_state = NORMAL;
 	enum fsm_signals fsm_signal = fsm_get_signal();
 	if ( fsm_signal != NONE ) printf("%d\n", fsm_signal);
+	if ( fsm_signal == ALARM_OFF ) fsm_signal = LIST_ON;
 	if ( fsm[fsm_state][fsm_signal].worker != NULL ) fsm[fsm_state][fsm_signal].worker(fsm_state, fsm_signal);
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code
@@ -162,6 +163,8 @@ static enum fsm_signals fsm_get_signal(void)
 		alarm_time.second_10 == current_time.second_10 && alarm_time.second == current_time.second &&
 		alarm_state.enable == 1 && alarm_state.work == 0 ) return ALARM_ON;
 	if ( alarm_state.end == 1 && alarm_state.work == 1 ) return ALARM_OFF;
+	
+	if ( list_state.end == 1 && list_state.work == 1 ) return LIST_OFF;
 	
 	for (uint8_t i = 0; i <= MAX_NUMBER_DIGIT; i++)
 	{
@@ -376,11 +379,44 @@ static void fsm_worker_set_alarm(enum fsm_states state, enum fsm_signals signal)
 
 static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 {
-	return;
+	static uint8_t d0, d1, d2, d3;
+	if ( timer_get(timer_get_object(TIMER_APP_LIST)) == 0 )
+	{
+		timer_set(timer_get_object(TIMER_APP_LIST), 100);
+		if ( d0 < 9 )
+		{
+			d0++; list_time.minute++;
+			if ( list_time.minute > 9 ) list_time.minute = 0;
+		};
+		if ( d1 < 9 && d0 > 4 )
+		{
+			d1++; list_time.minute_10++;
+			if ( list_time.minute_10 > 9 ) list_time.minute_10 = 0;
+		};
+		if ( d2 < 9 && d1 > 4 )
+		{
+			d2++; list_time.hour++;
+			if ( list_time.hour > 9 ) list_time.hour = 0;
+		};
+		if ( d3 < 9 && d2 > 4 )
+		{
+			d3++; list_time.hour_10++;
+			if ( list_time.hour_10 > 9 ) list_time.hour_10 = 0;
+		};
+		lk_set_4digits(list_time.hour_10, list_time.hour, list_time.minute_10, list_time.minute);
+		if ( d0 >= 9 && d1 >= 9 && d2 >= 9 && d3 >= 9 )
+		{
+			list_state.end = 1;
+			d0 = d1 = d2 = d3 = 0;
+		};
+		printf("list: %d %d %d %d\n", d0, d1, d2, d3);
+	};
 }
 
 static void fsm_worker_set_list(enum fsm_states state, enum fsm_signals signal)
 {
 	fsm_worker_set_normal(state, signal);
 	list_state.end = 0; list_state.work = 1; list_state.i = 0;
+	list_time.hour_10 = current_time.hour_10; list_time.hour = current_time.hour;
+	list_time.minute_10 = current_time.minute_10; list_time.minute = current_time.minute;
 }
