@@ -523,28 +523,28 @@ void pchal_tick(void)
 		};
 		if ( event.type == SDL_KEYDOWN || event.type == SDL_KEYUP)
 		{
-			printf("Key: ");
+			//printf("Key: ");
 			switch (event.key.keysym.sym)
 			{
 				case SDLK_1:
-					if ( event.type == SDL_KEYDOWN ) { keys[0] = 1; printf("1 down\n"); };
-					if ( event.type == SDL_KEYUP ) { keys[0] = 0; printf("1 up\n"); };
+					if ( event.type == SDL_KEYDOWN ) { keys[0] = 1; };//printf("1 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[0] = 0; };//printf("1 up\n"); };
 					break;
 				case SDLK_2:
-					if ( event.type == SDL_KEYDOWN ) { keys[1] = 1; printf("2 down\n"); };
-					if ( event.type == SDL_KEYUP ) { keys[1] = 0; printf("2 up\n"); };
+					if ( event.type == SDL_KEYDOWN ) { keys[1] = 1; };//printf("2 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[1] = 0; };//printf("2 up\n"); };
 					break;
 				case SDLK_3:
-					if ( event.type == SDL_KEYDOWN ) { keys[2] = 1; printf("3 down\n"); };
-					if ( event.type == SDL_KEYUP ) { keys[2] = 0; printf("3 up\n"); };
+					if ( event.type == SDL_KEYDOWN ) { keys[2] = 1; };//printf("3 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[2] = 0; };//printf("3 up\n"); };
 					break;
 				case SDLK_4:
-					if ( event.type == SDL_KEYDOWN ) { keys[3] = 1; printf("4 down\n"); };
-					if ( event.type == SDL_KEYUP ) { keys[3] = 0; printf("4 up\n"); };
+					if ( event.type == SDL_KEYDOWN ) { keys[3] = 1; };//printf("4 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[3] = 0; };//printf("4 up\n"); };
 					break;
 				case SDLK_5:
-					if ( event.type == SDL_KEYDOWN ) { keys[4] = 1; printf("5 down\n"); };
-					if ( event.type == SDL_KEYUP ) { keys[4] = 0; printf("5 up\n"); };
+					if ( event.type == SDL_KEYDOWN ) { keys[4] = 1; };//printf("5 down\n"); };
+					if ( event.type == SDL_KEYUP ) { keys[4] = 0; };//printf("5 up\n"); };
 					break;
 			};
 		};
