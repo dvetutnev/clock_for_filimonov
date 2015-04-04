@@ -7,7 +7,12 @@
 
 static rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
 static rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
-static uint8_t alarm_state = 0;
+typedef struct
+{
+	uint8_t enable;
+	uint8_t work;
+} alarm_state_t;
+static alarm_state_t alarm_state = {.enable = 0, .work = 0};
 
 // FSM 
 enum fsm_signals {NONE = 0, MODE, MODE_FIX, MODE_A, MODE_A_FIX, UP, DOWN, ALARM_ON, ALARM_OFF, LIST_ON, LIST_OFF};
@@ -117,7 +122,7 @@ void app_init(void)
 	rtc_init();
 	rtc_get(&current_time);
 	rtc_get_alarm(&alarm_time);
-	alarm_state = rtc_get_alarm_state();
+	alarm_state.enable = rtc_get_alarm_state();
 }
 
 void app_run(void)
@@ -132,7 +137,7 @@ void app_run(void)
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code
 	//if ( current_time.second & 0x01 ) lk_set_ddot(LK_LED_ON); else lk_set_ddot(LK_LED_OFF);
-	if ( alarm_state == 0 && fsm_state != MIN_A && fsm_state != HOUR_A )  lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
+	if ( alarm_state.enable == 0 && fsm_state != MIN_A && fsm_state != HOUR_A )  lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
 	
 	if ( fsm_state == MIN )  lk_set_aled(0, LK_LED_ON); else lk_set_aled(0, LK_LED_OFF);
 	if ( fsm_state == HOUR )  lk_set_aled(1, LK_LED_ON); else lk_set_aled(1, LK_LED_OFF);
@@ -165,8 +170,8 @@ static enum fsm_signals fsm_get_signal(void)
 					signal = MODE_A; break;
 				case LK_KEY_ALARM_ENABLE:
 					signal = ALARM_OFF;
-					alarm_state = ~alarm_state;
-					rtc_set_alarm_state(alarm_state);
+					alarm_state.enable = ~alarm_state.enable;
+					rtc_set_alarm_state(alarm_state.enable);
 					break;
 				default:
 					signal = NONE;

@@ -390,7 +390,7 @@ static int32_t pchal_time_offset = 0;
 static uint8_t as = 0;
 static uint8_t am = 3;
 static uint8_t ah = 4;
-static uint8_t astate = 0;
+static uint8_t astate = 1;
 
 void hal_iic_init(void)
 {
