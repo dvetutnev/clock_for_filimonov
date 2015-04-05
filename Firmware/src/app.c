@@ -155,12 +155,16 @@ void app_run(void)
 	{
 		fsm_state = NORMAL;
 		fsm_worker_set_normal(NORMAL, NONE);
+		i = 0;
 	};
 	if ( fsm[fsm_state][fsm_signal].worker != NULL ) fsm[fsm_state][fsm_signal].worker(fsm_state, fsm_signal);
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code
 	rtc_get(&current_time);
-	if ( alarm_state.enable == 0 && fsm_state != MIN_A && fsm_state != HOUR_A )  lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
+	if ( fsm_state != MIN_A && fsm_state != HOUR_A )
+	{
+		if ( alarm_state.enable == 0 ) lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
+	};
 }
 
 static enum fsm_signals fsm_get_signal(void)
@@ -175,9 +179,9 @@ static enum fsm_signals fsm_get_signal(void)
 	if ( alarm_state.end == 1 && alarm_state.work == 1 ) return ALARM_OFF;
 
 	if ( list_time.hour_10 == current_time.hour_10 && list_time.hour == current_time.hour &&
-		list_time.minute_10 == current_time.minute_10 && list_time.minute == current_time.minute &&
-		list_time.second_10 == current_time.second_10 && list_time.second == current_time.second &&
-		list_state.work == 0 ) return ALARM_ON;
+		list_time.minute_10 == current_time.minute_10 && list_time.minute <= current_time.minute &&
+		list_time.second_10 <= current_time.second_10 && list_time.second <= current_time.second &&
+		list_state.work == 0 ) return LIST_ON;
 	if ( list_state.end == 1 && list_state.work == 1 ) return LIST_OFF;
 	
 	for (uint8_t i = 0; i <= MAX_NUMBER_DIGIT; i++)
@@ -205,7 +209,7 @@ static enum fsm_signals fsm_get_signal(void)
 					signal = ALARM_OFF;
 					if ( !alarm_state.work )
 					{
-						if ( !alarm_state.enable ) alarm_state.enable = 1; else alarm_state.enable = 0;
+						if ( alarm_state.enable == 0 ) alarm_state.enable = 1; else alarm_state.enable = 0;
 						rtc_set_alarm_state(alarm_state.enable);
 					};
 					break;
