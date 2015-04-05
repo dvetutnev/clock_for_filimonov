@@ -26,8 +26,8 @@ static digit_t digits[MAX_NUMBER_DIGIT + 1];
 // Кнопки
 typedef struct
 {
-	uint8_t value:1;
-	uint8_t old_value:1;
+	uint8_t value;
+	uint8_t old_value;
 	timer_object_t timer_object;
 } key_t;
 static key_t keys[MAX_NUMBER_DIGIT + 1];

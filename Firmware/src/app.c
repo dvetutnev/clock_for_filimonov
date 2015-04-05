@@ -6,8 +6,6 @@
 #include "rtc.h"
 #include "random.h"
 
-#include <stdio.h>
-
 static rtc_time_t current_time = {0, 0, 0, 0, 0, 0};
 static rtc_time_t alarm_time = {0, 0, 0, 0, 0, 0};
 static rtc_time_t list_time = {0, 0, 0, 0, 0, 0};
@@ -139,14 +137,25 @@ void app_init(void)
 
 void app_run(void)
 {
+	static uint8_t i = 0;
 	#ifdef PC_BUILD
 	pchal_tick();
 	#endif //PC_BUILD
 	//FSM
 	static enum fsm_states fsm_state = NORMAL;
 	enum fsm_signals fsm_signal = fsm_get_signal();
-	if ( fsm_signal != NONE ) printf("%d\n", fsm_signal);
-	if ( fsm_signal == ALARM_OFF ) fsm_signal = LIST_ON;
+	//Auto set NORMAL
+	if ( fsm_signal != NONE ) i = 0;
+		else if ( timer_get(timer_get_object(TIMER_APP_AUTO_NORMAL)) == 0 )
+		{
+			i++;
+			timer_set(timer_get_object(TIMER_APP_AUTO_NORMAL), 1000);
+		};
+	if ( i >= 20 )
+	{
+		fsm_state = NORMAL;
+		fsm_worker_set_normal(NORMAL, NONE);
+	};
 	if ( fsm[fsm_state][fsm_signal].worker != NULL ) fsm[fsm_state][fsm_signal].worker(fsm_state, fsm_signal);
 	fsm_state = fsm[fsm_state][fsm_signal].new_state;
 	//Common code

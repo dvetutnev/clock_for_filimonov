@@ -73,7 +73,8 @@
 #define TIMER_APP_KEY_4 11
 #define TIMER_APP_ALARM 12
 #define TIMER_APP_LIST 13
-#define MAX_NUMBER_TIMER 13// Максимальный таймер, нумерация от 0
+#define TIMER_APP_AUTO_NORMAL 14
+#define MAX_NUMBER_TIMER 14// Максимальный таймер, нумерация от 0
 
 #define KEY_PIN 3
 #define KEY_PORT PIND
