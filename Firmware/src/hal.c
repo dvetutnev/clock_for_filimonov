@@ -1,7 +1,11 @@
 #include <stdint.h>
+#include <stdlib.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "hal.h"
+#include "i2cmaster.h"
+
+static void (*timer_callback)(void) = NULL;
 
 void hal_init(void)
 {
@@ -44,16 +48,15 @@ void hal_init(void)
 	KEY_PORT &= ~_BV (KEY_PIN);
 	// Timer 0
 	TCCR0 = 0;
-	TCCR0 = 0<<CS00|1<<CS01|0<<CS02; //тактовая 1/1
+	TCCR0 = 1<<CS00|0<<CS01|0<<CS02; //тактовая 1/1
 	TIMSK = 0;
 	TIMSK = 1<<TOIE0;
 	sei();
-	return;
 }
 
 void hal_timer_init(void (*callback)(void))
 {
-	return;
+	timer_callback = callback;
 }
 
 void hal_led_off(void)
@@ -129,54 +132,58 @@ uint8_t hal_key_get(void)
 	return bit_is_set(KEY_PORT, KEY_PIN);
 }
 
-void lk_tick(void);
-ISR (TIMER0_OVF_vect)
-{
-	lk_tick();
-}
-
 void hal_iic_init(void)
 {
-	return;
+	i2c_init();
 }
 
 void hal_iic_stop(void)
 {
-	return;
+	i2c_stop();
 }
 
 uint8_t hal_iic_start(uint8_t addr)
 {
-	return 0;
+	return i2c_start(addr);
 }
 
 uint8_t hal_iic_rep_start(uint8_t addr)
 {
-	return 0;
+	return i2c_rep_start(addr);
 }
 
 void hal_iic_start_wait(uint8_t addr)
 {
-	return;
+	i2c_start_wait(addr);
 }
 
 uint8_t hal_iic_write(uint8_t data)
 {
-	return 0;
+	return i2c_write(data);
 }
 
 uint8_t hal_iic_read_ack(void)
 {
-	return 0;
+	return i2c_readAck();
 }
 
 uint8_t hal_iic_read_nak(void)
 {
-	return 0;
+	return i2c_readNak();
 }
 
 uint8_t hal_iic_read(uint8_t ack)
 {
-	return 0;
+	return i2c_read(ack);
 }
 
+static uint8_t timer0_i = 0;
+ISR (TIMER0_OVF_vect)
+{
+	if ( timer0_i >= 3 )
+	{
+		if ( timer_callback != NULL ) timer_callback();
+		timer0_i = 0;
+	};
+	timer0_i++;
+}

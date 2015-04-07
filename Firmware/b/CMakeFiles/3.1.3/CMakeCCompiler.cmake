@@ -1,4 +1,4 @@
-set(CMAKE_C_COMPILER "d:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe")
+set(CMAKE_C_COMPILER "c:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe")
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_COMPILER_VERSION "4.8.1")
@@ -11,9 +11,9 @@ set(CMAKE_C_PLATFORM_ID "")
 set(CMAKE_C_SIMULATE_ID "")
 set(CMAKE_C_SIMULATE_VERSION "")
 
-set(CMAKE_AR "d:/toolchain/avr8-gnu-toolchain/bin/avr-ar.exe")
-set(CMAKE_RANLIB "d:/toolchain/avr8-gnu-toolchain/bin/avr-ranlib.exe")
-set(CMAKE_LINKER "d:/toolchain/avr8-gnu-toolchain/bin/avr-ld.exe")
+set(CMAKE_AR "c:/toolchain/avr8-gnu-toolchain/bin/avr-ar.exe")
+set(CMAKE_RANLIB "c:/toolchain/avr8-gnu-toolchain/bin/avr-ranlib.exe")
+set(CMAKE_LINKER "c:/toolchain/avr8-gnu-toolchain/bin/avr-ld.exe")
 set(CMAKE_COMPILER_IS_GNUCC 1)
 set(CMAKE_C_COMPILER_LOADED 1)
 set(CMAKE_C_COMPILER_WORKS TRUE)
@@ -56,7 +56,7 @@ endif()
 
 
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "m;c")
-set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;d:/toolchain/avr8-gnu-toolchain/lib/gcc;d:/toolchain/avr8-gnu-toolchain/avr/lib")
+set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "c:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;c:/toolchain/avr8-gnu-toolchain/lib/gcc;c:/toolchain/avr8-gnu-toolchain/avr/lib")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")
 
 

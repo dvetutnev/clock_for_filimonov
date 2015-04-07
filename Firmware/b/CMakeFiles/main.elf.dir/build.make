@@ -53,15 +53,15 @@ CMakeFiles/main.elf.dir/src/main.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/main.c.obj: ../src/main.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/main.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/main.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/main.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c
 
 CMakeFiles/main.elf.dir/src/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/main.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c > CMakeFiles/main.elf.dir/src/main.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c > CMakeFiles/main.elf.dir/src/main.c.i
 
 CMakeFiles/main.elf.dir/src/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/main.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c -o CMakeFiles/main.elf.dir/src/main.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c -o CMakeFiles/main.elf.dir/src/main.c.s
 
 CMakeFiles/main.elf.dir/src/main.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/main.c.obj.requires
@@ -76,15 +76,15 @@ CMakeFiles/main.elf.dir/src/app.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/app.c.obj: ../src/app.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_2)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/app.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/app.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/app.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c
 
 CMakeFiles/main.elf.dir/src/app.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/app.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c > CMakeFiles/main.elf.dir/src/app.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c > CMakeFiles/main.elf.dir/src/app.c.i
 
 CMakeFiles/main.elf.dir/src/app.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/app.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c -o CMakeFiles/main.elf.dir/src/app.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c -o CMakeFiles/main.elf.dir/src/app.c.s
 
 CMakeFiles/main.elf.dir/src/app.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/app.c.obj.requires
@@ -99,15 +99,15 @@ CMakeFiles/main.elf.dir/src/lk.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/lk.c.obj: ../src/lk.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/lk.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/lk.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/lk.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c
 
 CMakeFiles/main.elf.dir/src/lk.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/lk.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c > CMakeFiles/main.elf.dir/src/lk.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c > CMakeFiles/main.elf.dir/src/lk.c.i
 
 CMakeFiles/main.elf.dir/src/lk.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/lk.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c -o CMakeFiles/main.elf.dir/src/lk.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c -o CMakeFiles/main.elf.dir/src/lk.c.s
 
 CMakeFiles/main.elf.dir/src/lk.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/lk.c.obj.requires
@@ -122,15 +122,15 @@ CMakeFiles/main.elf.dir/src/rtc.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/rtc.c.obj: ../src/rtc.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/rtc.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/rtc.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/rtc.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c
 
 CMakeFiles/main.elf.dir/src/rtc.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/rtc.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c > CMakeFiles/main.elf.dir/src/rtc.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c > CMakeFiles/main.elf.dir/src/rtc.c.i
 
 CMakeFiles/main.elf.dir/src/rtc.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/rtc.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c -o CMakeFiles/main.elf.dir/src/rtc.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c -o CMakeFiles/main.elf.dir/src/rtc.c.s
 
 CMakeFiles/main.elf.dir/src/rtc.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/rtc.c.obj.requires
@@ -145,15 +145,15 @@ CMakeFiles/main.elf.dir/src/timer.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/timer.c.obj: ../src/timer.c
 	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_5)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/timer.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/timer.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/timer.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c
 
 CMakeFiles/main.elf.dir/src/timer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/timer.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c > CMakeFiles/main.elf.dir/src/timer.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c > CMakeFiles/main.elf.dir/src/timer.c.i
 
 CMakeFiles/main.elf.dir/src/timer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/timer.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c -o CMakeFiles/main.elf.dir/src/timer.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c -o CMakeFiles/main.elf.dir/src/timer.c.s
 
 CMakeFiles/main.elf.dir/src/timer.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/timer.c.obj.requires
@@ -164,19 +164,42 @@ CMakeFiles/main.elf.dir/src/timer.c.obj.provides: CMakeFiles/main.elf.dir/src/ti
 
 CMakeFiles/main.elf.dir/src/timer.c.obj.provides.build: CMakeFiles/main.elf.dir/src/timer.c.obj
 
+CMakeFiles/main.elf.dir/src/random.c.obj: CMakeFiles/main.elf.dir/flags.make
+CMakeFiles/main.elf.dir/src/random.c.obj: ../src/random.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_6)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/random.c.obj"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/random.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c
+
+CMakeFiles/main.elf.dir/src/random.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/random.c.i"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c > CMakeFiles/main.elf.dir/src/random.c.i
+
+CMakeFiles/main.elf.dir/src/random.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/random.c.s"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c -o CMakeFiles/main.elf.dir/src/random.c.s
+
+CMakeFiles/main.elf.dir/src/random.c.obj.requires:
+.PHONY : CMakeFiles/main.elf.dir/src/random.c.obj.requires
+
+CMakeFiles/main.elf.dir/src/random.c.obj.provides: CMakeFiles/main.elf.dir/src/random.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/random.c.obj.provides.build
+.PHONY : CMakeFiles/main.elf.dir/src/random.c.obj.provides
+
+CMakeFiles/main.elf.dir/src/random.c.obj.provides.build: CMakeFiles/main.elf.dir/src/random.c.obj
+
 CMakeFiles/main.elf.dir/src/hal.c.obj: CMakeFiles/main.elf.dir/flags.make
 CMakeFiles/main.elf.dir/src/hal.c.obj: ../src/hal.c
-	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_6)
+	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_7)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/hal.c.obj"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/hal.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/hal.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c
 
 CMakeFiles/main.elf.dir/src/hal.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/hal.c.i"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c > CMakeFiles/main.elf.dir/src/hal.c.i
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c > CMakeFiles/main.elf.dir/src/hal.c.i
 
 CMakeFiles/main.elf.dir/src/hal.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/hal.c.s"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c -o CMakeFiles/main.elf.dir/src/hal.c.s
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c -o CMakeFiles/main.elf.dir/src/hal.c.s
 
 CMakeFiles/main.elf.dir/src/hal.c.obj.requires:
 .PHONY : CMakeFiles/main.elf.dir/src/hal.c.obj.requires
@@ -187,6 +210,29 @@ CMakeFiles/main.elf.dir/src/hal.c.obj.provides: CMakeFiles/main.elf.dir/src/hal.
 
 CMakeFiles/main.elf.dir/src/hal.c.obj.provides.build: CMakeFiles/main.elf.dir/src/hal.c.obj
 
+CMakeFiles/main.elf.dir/src/twimaster.c.obj: CMakeFiles/main.elf.dir/flags.make
+CMakeFiles/main.elf.dir/src/twimaster.c.obj: ../src/twimaster.c
+	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles $(CMAKE_PROGRESS_8)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building C object CMakeFiles/main.elf.dir/src/twimaster.c.obj"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -o CMakeFiles/main.elf.dir/src/twimaster.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c
+
+CMakeFiles/main.elf.dir/src/twimaster.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/main.elf.dir/src/twimaster.c.i"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -E /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c > CMakeFiles/main.elf.dir/src/twimaster.c.i
+
+CMakeFiles/main.elf.dir/src/twimaster.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/main.elf.dir/src/twimaster.c.s"
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  $(C_DEFINES) $(C_FLAGS) -S /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c -o CMakeFiles/main.elf.dir/src/twimaster.c.s
+
+CMakeFiles/main.elf.dir/src/twimaster.c.obj.requires:
+.PHONY : CMakeFiles/main.elf.dir/src/twimaster.c.obj.requires
+
+CMakeFiles/main.elf.dir/src/twimaster.c.obj.provides: CMakeFiles/main.elf.dir/src/twimaster.c.obj.requires
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/twimaster.c.obj.provides.build
+.PHONY : CMakeFiles/main.elf.dir/src/twimaster.c.obj.provides
+
+CMakeFiles/main.elf.dir/src/twimaster.c.obj.provides.build: CMakeFiles/main.elf.dir/src/twimaster.c.obj
+
 # Object files for target main.elf
 main_elf_OBJECTS = \
 "CMakeFiles/main.elf.dir/src/main.c.obj" \
@@ -194,7 +240,9 @@ main_elf_OBJECTS = \
 "CMakeFiles/main.elf.dir/src/lk.c.obj" \
 "CMakeFiles/main.elf.dir/src/rtc.c.obj" \
 "CMakeFiles/main.elf.dir/src/timer.c.obj" \
-"CMakeFiles/main.elf.dir/src/hal.c.obj"
+"CMakeFiles/main.elf.dir/src/random.c.obj" \
+"CMakeFiles/main.elf.dir/src/hal.c.obj" \
+"CMakeFiles/main.elf.dir/src/twimaster.c.obj"
 
 # External object files for target main.elf
 main_elf_EXTERNAL_OBJECTS =
@@ -204,14 +252,16 @@ main.elf: CMakeFiles/main.elf.dir/src/app.c.obj
 main.elf: CMakeFiles/main.elf.dir/src/lk.c.obj
 main.elf: CMakeFiles/main.elf.dir/src/rtc.c.obj
 main.elf: CMakeFiles/main.elf.dir/src/timer.c.obj
+main.elf: CMakeFiles/main.elf.dir/src/random.c.obj
 main.elf: CMakeFiles/main.elf.dir/src/hal.c.obj
+main.elf: CMakeFiles/main.elf.dir/src/twimaster.c.obj
 main.elf: CMakeFiles/main.elf.dir/build.make
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking C executable main.elf"
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wl,-Map=main.map,--cref $(main_elf_OBJECTS) $(main_elf_EXTERNAL_OBJECTS)  -o main.elf  
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-size.exe --mcu=atmega8 --format=avr main.elf
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe -O ihex -R .eeprom -R .fuse -R .lock main.elf main.hex
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe -O binary -R .eeprom -R .fuse -R .lock main.elf main.bin
-	/d/toolchain/avr8-gnu-toolchain/bin/avr-size.exe --target=ihex main.hex
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe  -std=gnu99 -pedantic -mmcu=atmega8 -DF_CPU=1000000UL -Os -gdwarf-2 -Wall -Wstrict-prototypes -Wundef -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums  -Wl,-Map=main.map,--cref $(main_elf_OBJECTS) $(main_elf_EXTERNAL_OBJECTS)  -o main.elf  
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-size.exe --mcu=atmega8 --format=avr main.elf
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe -O ihex -R .eeprom -R .fuse -R .lock main.elf main.hex
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe -O binary -R .eeprom -R .fuse -R .lock main.elf main.bin
+	/c/toolchain/avr8-gnu-toolchain/bin/avr-size.exe --target=ihex main.hex
 
 # Rule to build all files generated by this target.
 CMakeFiles/main.elf.dir/build: main.elf
@@ -222,7 +272,9 @@ CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/app.c.obj.requires
 CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/lk.c.obj.requires
 CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/rtc.c.obj.requires
 CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/timer.c.obj.requires
+CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/random.c.obj.requires
 CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/hal.c.obj.requires
+CMakeFiles/main.elf.dir/requires: CMakeFiles/main.elf.dir/src/twimaster.c.obj.requires
 .PHONY : CMakeFiles/main.elf.dir/requires
 
 CMakeFiles/main.elf.dir/clean:

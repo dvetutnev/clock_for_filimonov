@@ -5,11 +5,13 @@ CMakeFiles/main.elf.dir/src/app.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.c
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.h
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.h
 CMakeFiles/main.elf.dir/src/hal.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/i2cmaster.h
 CMakeFiles/main.elf.dir/src/lk.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c
@@ -18,6 +20,9 @@ CMakeFiles/main.elf.dir/src/lk.c.obj
 CMakeFiles/main.elf.dir/src/main.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c
+CMakeFiles/main.elf.dir/src/random.c.obj
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.h
 CMakeFiles/main.elf.dir/src/rtc.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c
@@ -26,3 +31,6 @@ CMakeFiles/main.elf.dir/src/timer.c.obj
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c
  D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.h
+CMakeFiles/main.elf.dir/src/twimaster.c.obj
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/i2cmaster.h
+ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c

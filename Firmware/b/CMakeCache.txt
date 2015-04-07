@@ -15,7 +15,7 @@
 ########################
 
 //Path to a program.
-CMAKE_AR:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-ar.exe
+CMAKE_AR:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-ar.exe
 
 //Flags used by the assembler during all build types.
 CMAKE_ASM_FLAGS:STRING=
@@ -74,7 +74,7 @@ CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/main
 
 //Path to a program.
-CMAKE_LINKER:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-ld.exe
+CMAKE_LINKER:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-ld.exe
 
 //Path to a program.
 CMAKE_MAKE_PROGRAM:FILEPATH=C:/msys64/usr/bin/make.exe
@@ -95,19 +95,19 @@ CMAKE_MODULE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_NM:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-nm.exe
+CMAKE_NM:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-nm.exe
 
 //Path to a program.
-CMAKE_OBJCOPY:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe
+CMAKE_OBJCOPY:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-objcopy.exe
 
 //Path to a program.
-CMAKE_OBJDUMP:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-objdump.exe
+CMAKE_OBJDUMP:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-objdump.exe
 
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=main
 
 //Path to a program.
-CMAKE_RANLIB:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-ranlib.exe
+CMAKE_RANLIB:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-ranlib.exe
 
 //Flags used by the linker during the creation of dll's.
 CMAKE_SHARED_LINKER_FLAGS:STRING=
@@ -147,7 +147,7 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Path to a program.
-CMAKE_STRIP:FILEPATH=d:/toolchain/avr8-gnu-toolchain/bin/avr-strip.exe
+CMAKE_STRIP:FILEPATH=c:/toolchain/avr8-gnu-toolchain/bin/avr-strip.exe
 
 //If true, cmake will use relative paths in makefiles and projects.
 CMAKE_USE_RELATIVE_PATHS:BOOL=OFF

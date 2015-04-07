@@ -8,8 +8,10 @@ set(CMAKE_DEPENDS_CHECK_C
   "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/hal.c.obj"
   "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/lk.c.obj"
   "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/main.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/random.c.obj"
   "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/rtc.c.obj"
   "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/timer.c.obj"
+  "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c" "D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/main.elf.dir/src/twimaster.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

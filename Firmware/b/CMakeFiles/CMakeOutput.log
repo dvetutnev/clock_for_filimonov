@@ -1,7 +1,7 @@
 The target system is: Generic -  - 
 The host system is: Windows - 6.3 - AMD64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
-Compiler: d:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe 
+Compiler: c:/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe 
 Build flags: 
 Id flags: 
 
@@ -23,39 +23,39 @@ This assembler was configured for a target of `avr'.
 Determining if the C compiler works passed with the following output:
 Change Dir: D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec3442280811/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec3442280811.dir/build.make CMakeFiles/cmTryCompileExec3442280811.dir/build
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec3840392024/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec3840392024.dir/build.make CMakeFiles/cmTryCompileExec3840392024.dir/build
 make[1]: вход в каталог «/d/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp»
 /C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec3442280811.dir/testCCompiler.c.obj
-/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec3442280811.dir/testCCompiler.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTryCompileExec3442280811
-/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe      "CMakeFiles/cmTryCompileExec3442280811.dir/testCCompiler.c.obj"   -o cmTryCompileExec3442280811  
+Building C object CMakeFiles/cmTryCompileExec3840392024.dir/testCCompiler.c.obj
+/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec3840392024.dir/testCCompiler.c.obj   -c /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTryCompileExec3840392024
+/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe      "CMakeFiles/cmTryCompileExec3840392024.dir/testCCompiler.c.obj"   -o cmTryCompileExec3840392024  
 make[1]: выход из каталога «/d/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp»
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp
 
-Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec952546465/fast"
-/usr/bin/make -f CMakeFiles/cmTryCompileExec952546465.dir/build.make CMakeFiles/cmTryCompileExec952546465.dir/build
+Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec209605986/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec209605986.dir/build.make CMakeFiles/cmTryCompileExec209605986.dir/build
 make[1]: вход в каталог «/d/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp»
 /C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp/CMakeFiles 1
-Building C object CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj
-/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.1/Modules/CMakeCCompilerABI.c
-Linking C executable cmTryCompileExec952546465
-/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe     -v "CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec952546465   
+Building C object CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj
+/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.1/Modules/CMakeCCompilerABI.c
+Linking C executable cmTryCompileExec209605986
+/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe     -v "CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec209605986   
 Using built-in specs.
-COLLECT_GCC=D:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe
-COLLECT_LTO_WRAPPER=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe
+COLLECT_GCC=C:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe
+COLLECT_LTO_WRAPPER=c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe
 Target: avr
 Configured with: /home/jenkins/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib CPPFLAGS= --target=avr --host=i686-pc-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --libdir=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-gmp=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-mpc=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --enable-win32-registry=avrtoolchain --enable-fixed-point --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.4.5_1522 --with-bugurl=http://www.atmel.com
 Thread model: single
 gcc version 4.8.1 (AVR_8_bit_GNU_Toolchain_3.4.5_1522) 
-COMPILER_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/;d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/
-LIBRARY_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/;d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/
-COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec952546465'
- d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -o cmTryCompileExec952546465 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+COMPILER_PATH=c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/;c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/;c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/
+LIBRARY_PATH=c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/;c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/;c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/
+COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec209605986'
+ c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -o cmTryCompileExec209605986 -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
 make[1]: выход из каталога «/d/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp»
 
 
@@ -63,47 +63,47 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(avr-ld\.exe|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec952546465/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec952546465.dir/build.make CMakeFiles/cmTryCompileExec952546465.dir/build]
+  ignore line: [Run Build Command:"C:/msys64/usr/bin/make.exe" "cmTryCompileExec209605986/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTryCompileExec209605986.dir/build.make CMakeFiles/cmTryCompileExec209605986.dir/build]
   ignore line: [make[1]: вход в каталог «/d/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp»]
   ignore line: [/C/msys64/mingw64/bin/cmake.exe -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles/CMakeTmp/CMakeFiles 1]
-  ignore line: [Building C object CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj]
-  ignore line: [/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.1/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTryCompileExec952546465]
-  ignore line: [/d/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe     -v "CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec952546465   ]
+  ignore line: [Building C object CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj]
+  ignore line: [/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe    -o CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj   -c /C/msys64/mingw64/share/cmake-3.1/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTryCompileExec209605986]
+  ignore line: [/c/toolchain/avr8-gnu-toolchain/bin/avr-gcc.exe     -v "CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj"   -o cmTryCompileExec209605986   ]
   ignore line: [Using built-in specs.]
-  ignore line: [COLLECT_GCC=D:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe]
-  ignore line: [COLLECT_LTO_WRAPPER=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe]
+  ignore line: [COLLECT_GCC=C:\toolchain\avr8-gnu-toolchain\bin\avr-gcc.exe]
+  ignore line: [COLLECT_LTO_WRAPPER=c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/lto-wrapper.exe]
   ignore line: [Target: avr]
   ignore line: [Configured with: /home/jenkins/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib CPPFLAGS= --target=avr --host=i686-pc-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --libdir=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-gmp=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --with-mpc=/home/jenkins/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86 --enable-win32-registry=avrtoolchain --enable-fixed-point --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.4.5_1522 --with-bugurl=http://www.atmel.com]
   ignore line: [Thread model: single]
   ignore line: [gcc version 4.8.1 (AVR_8_bit_GNU_Toolchain_3.4.5_1522) ]
-  ignore line: [COMPILER_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/]
-  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/]
-  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/]
-  ignore line: [LIBRARY_PATH=d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/]
-  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/]
-  ignore line: [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec952546465']
-  link line: [ d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -o cmTryCompileExec952546465 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
-    arg [d:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe] ==> ignore
+  ignore line: [COMPILER_PATH=c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/]
+  ignore line: [c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/]
+  ignore line: [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/bin/]
+  ignore line: [LIBRARY_PATH=c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/]
+  ignore line: [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/]
+  ignore line: [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib/]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTryCompileExec209605986']
+  link line: [ c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe -o cmTryCompileExec209605986 -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1 -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc -Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
+    arg [c:/toolchain/avr8-gnu-toolchain/bin/../libexec/gcc/avr/4.8.1/collect2.exe] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTryCompileExec952546465] ==> ignore
-    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1]
-    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc]
-    arg [-Ld:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib]
-    arg [CMakeFiles/cmTryCompileExec952546465.dir/CMakeCCompilerABI.c.obj] ==> ignore
+    arg [cmTryCompileExec209605986] ==> ignore
+    arg [-Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1]
+    arg [-Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc]
+    arg [-Lc:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib]
+    arg [CMakeFiles/cmTryCompileExec209605986.dir/CMakeCCompilerABI.c.obj] ==> ignore
     arg [--start-group] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [-lm] ==> lib [m]
     arg [-lc] ==> lib [c]
     arg [--end-group] ==> ignore
   remove lib [gcc]
-  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> [d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1]
-  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> [d:/toolchain/avr8-gnu-toolchain/lib/gcc]
-  collapse library dir [d:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> [d:/toolchain/avr8-gnu-toolchain/avr/lib]
+  collapse library dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1] ==> [c:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1]
+  collapse library dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc] ==> [c:/toolchain/avr8-gnu-toolchain/lib/gcc]
+  collapse library dir [c:/toolchain/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.8.1/../../../../avr/lib] ==> [c:/toolchain/avr8-gnu-toolchain/avr/lib]
   implicit libs: [m;c]
-  implicit dirs: [d:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;d:/toolchain/avr8-gnu-toolchain/lib/gcc;d:/toolchain/avr8-gnu-toolchain/avr/lib]
+  implicit dirs: [c:/toolchain/avr8-gnu-toolchain/lib/gcc/avr/4.8.1;c:/toolchain/avr8-gnu-toolchain/lib/gcc;c:/toolchain/avr8-gnu-toolchain/avr/lib]
   implicit fwks: []
 
 

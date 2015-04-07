@@ -19,11 +19,15 @@ lk.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.h
 rtc.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.h
+random.h
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.h
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.h
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.c
 stdint.h
+-
+stdlib.h
 -
 avr/io.h
 -
@@ -31,8 +35,16 @@ avr/interrupt.h
 -
 hal.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
+i2cmaster.h
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/i2cmaster.h
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/hal.h
+
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/i2cmaster.h
+i2cmaster.h
+-
+avr/io.h
+-
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.c
 stdint.h
@@ -51,6 +63,14 @@ D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/lk.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/main.c
 app.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/app.h
+
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.c
+stdint.h
+-
+random.h
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.h
+
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/random.h
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/rtc.c
 stdint.h
@@ -75,4 +95,12 @@ timer.h
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.h
 
 D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/timer.h
+
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/twimaster.c
+inttypes.h
+-
+compat/twi.h
+-
+i2cmaster.h
+D:/GoogleDrive/ElP/clock_for_filimonov/Firmware/src/i2cmaster.h
 

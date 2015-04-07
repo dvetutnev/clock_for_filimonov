@@ -46,7 +46,7 @@ CMAKE_BINARY_DIR = /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b
 include CMakeFiles/flash.dir/progress.make
 
 CMakeFiles/flash:
-	/d/toolchain/avr8-gnu-toolchain/../avrdude/avrdude.exe -s -p atmega8 -P com3 -c stk500v2 -U flash:w:main.hex
+	/c/toolchain/avr8-gnu-toolchain/../avrdude/avrdude.exe -s -p atmega8 -P com3 -c stk500v2 -U flash:w:main.hex
 
 flash: CMakeFiles/flash
 flash: CMakeFiles/flash.dir/build.make

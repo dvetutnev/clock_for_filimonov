@@ -224,6 +224,30 @@ src/main.c.s:
 	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/main.c.s
 .PHONY : src/main.c.s
 
+src/random.obj: src/random.c.obj
+.PHONY : src/random.obj
+
+# target to build an object file
+src/random.c.obj:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/random.c.obj
+.PHONY : src/random.c.obj
+
+src/random.i: src/random.c.i
+.PHONY : src/random.i
+
+# target to preprocess a source file
+src/random.c.i:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/random.c.i
+.PHONY : src/random.c.i
+
+src/random.s: src/random.c.s
+.PHONY : src/random.s
+
+# target to generate assembly for a file
+src/random.c.s:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/random.c.s
+.PHONY : src/random.c.s
+
 src/rtc.obj: src/rtc.c.obj
 .PHONY : src/rtc.obj
 
@@ -272,6 +296,30 @@ src/timer.c.s:
 	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/timer.c.s
 .PHONY : src/timer.c.s
 
+src/twimaster.obj: src/twimaster.c.obj
+.PHONY : src/twimaster.obj
+
+# target to build an object file
+src/twimaster.c.obj:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/twimaster.c.obj
+.PHONY : src/twimaster.c.obj
+
+src/twimaster.i: src/twimaster.c.i
+.PHONY : src/twimaster.i
+
+# target to preprocess a source file
+src/twimaster.c.i:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/twimaster.c.i
+.PHONY : src/twimaster.c.i
+
+src/twimaster.s: src/twimaster.c.s
+.PHONY : src/twimaster.s
+
+# target to generate assembly for a file
+src/twimaster.c.s:
+	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/src/twimaster.c.s
+.PHONY : src/twimaster.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -294,12 +342,18 @@ help:
 	@echo "... src/main.obj"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/random.obj"
+	@echo "... src/random.i"
+	@echo "... src/random.s"
 	@echo "... src/rtc.obj"
 	@echo "... src/rtc.i"
 	@echo "... src/rtc.s"
 	@echo "... src/timer.obj"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"
+	@echo "... src/twimaster.obj"
+	@echo "... src/twimaster.i"
+	@echo "... src/twimaster.s"
 .PHONY : help
 
 

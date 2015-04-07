@@ -90,7 +90,7 @@ clean: CMakeFiles/flash.dir/clean
 CMakeFiles/main.elf.dir/all:
 	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/depend
 	$(MAKE) -f CMakeFiles/main.elf.dir/build.make CMakeFiles/main.elf.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles  1 2 3 4 5 6
+	$(CMAKE_COMMAND) -E cmake_progress_report /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles  1 2 3 4 5 6 7 8
 	@echo "Built target main.elf"
 .PHONY : CMakeFiles/main.elf.dir/all
 
@@ -100,7 +100,7 @@ all: CMakeFiles/main.elf.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/main.elf.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles 8
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/main.elf.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /D/GoogleDrive/ElP/clock_for_filimonov/Firmware/b/CMakeFiles 0
 .PHONY : CMakeFiles/main.elf.dir/rule

@@ -133,6 +133,7 @@ void app_init(void)
 	rtc_get(&current_time);
 	rtc_get_alarm(&alarm_time);
 	alarm_state.enable = rtc_get_alarm_state();
+	rtc_get(&list_time);
 }
 
 void app_run(void)
@@ -151,7 +152,7 @@ void app_run(void)
 			i++;
 			timer_set(timer_get_object(TIMER_APP_AUTO_NORMAL), 1000);
 		};
-	if ( i >= 20 )
+	if ( i >= 42 )
 	{
 		fsm_state = NORMAL;
 		fsm_worker_set_normal(NORMAL, NONE);
@@ -163,7 +164,7 @@ void app_run(void)
 	rtc_get(&current_time);
 	if ( fsm_state != MIN_A && fsm_state != HOUR_A )
 	{
-		if ( alarm_state.enable == 0 ) lk_set_aled(2, LK_LED_OFF); else lk_set_aled(2, LK_LED_ON);
+		if ( alarm_state.enable == 0 ) lk_set_aled(3, LK_LED_OFF); else lk_set_aled(3, LK_LED_ON);
 	};
 }
 
@@ -278,7 +279,7 @@ static void fsm_worker_set_mode(enum fsm_states state, enum fsm_signals signal)
 
 static void fsm_worker_set_mode_a(enum fsm_states state, enum fsm_signals signal)
 {
-	lk_set_aled(2, LK_LED_BLINK);
+	lk_set_aled(3, LK_LED_BLINK);
 	lk_set_ddot(LK_LED_OFF);
 	lk_set_4digits(alarm_time.hour_10, alarm_time.hour, alarm_time.minute_10, alarm_time.minute);
 	fsm_worker_set_mode(state, signal);
@@ -372,7 +373,7 @@ static void fsm_worker_alarm(enum fsm_states state, enum fsm_signals signal)
 	{
 		if ( (alarm_state.i & 1) == 0 )
 		{
-			timer_set(timer_get_object(TIMER_APP_ALARM), 200);
+			timer_set(timer_get_object(TIMER_APP_ALARM), 150);
 			lk_set_alarm(LK_LED_ON);
 		}
 		else
@@ -391,6 +392,7 @@ static void fsm_worker_alarm(enum fsm_states state, enum fsm_signals signal)
 
 static void fsm_worker_set_alarm(enum fsm_states state, enum fsm_signals signal)
 {
+	lk_set_alarm(LK_LED_ON);
 	fsm_worker_set_normal(state, signal);
 	alarm_state.end = 0; alarm_state.work = 1; alarm_state.i = 0;
 }
