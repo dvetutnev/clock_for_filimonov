@@ -402,7 +402,7 @@ static void fsm_worker_list(enum fsm_states state, enum fsm_signals signal)
 	static uint8_t d0, d1, d2, d3;
 	if ( timer_get(timer_get_object(TIMER_APP_LIST)) == 0 )
 	{
-		timer_set(timer_get_object(TIMER_APP_LIST), 100);
+		timer_set(timer_get_object(TIMER_APP_LIST), 70);
 		if ( d0 < 9 )
 		{
 			d0++; list_time.minute++;
