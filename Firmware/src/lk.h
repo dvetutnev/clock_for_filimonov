@@ -18,11 +18,12 @@ void lk_set_ddot(uint8_t state);
 void lk_set_aled(uint8_t number, uint8_t state); 
 void lk_set_alarm(uint8_t state);
 // Кнопки
-#define LK_KEY_UP 1U
-#define LK_KEY_DOWN 0U
-#define LK_KEY_CLOCK_SET 4U
-#define LK_KEY_ALARM_SET 2U
+#define LK_KEY_UP 2U
+#define LK_KEY_DOWN 4U
 #define LK_KEY_ALARM_ENABLE 3U
+#define LK_KEY_CLOCK_SET 0U
+#define LK_KEY_ALARM_SET 1U
+
 // Состояние кнопки
 #define LK_KEY_OFF 0U // Отпущена
 #define LK_KEY_ON 1U // Нажата
