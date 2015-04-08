@@ -373,7 +373,7 @@ static void fsm_worker_alarm(enum fsm_states state, enum fsm_signals signal)
 	{
 		if ( (alarm_state.i & 1) == 0 )
 		{
-			timer_set(timer_get_object(TIMER_APP_ALARM), 150);
+			timer_set(timer_get_object(TIMER_APP_ALARM), 100);
 			lk_set_alarm(LK_LED_ON);
 		}
 		else

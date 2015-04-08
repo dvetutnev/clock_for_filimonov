@@ -21,8 +21,8 @@ void lk_set_alarm(uint8_t state);
 #define LK_KEY_UP 2U
 #define LK_KEY_DOWN 4U
 #define LK_KEY_ALARM_ENABLE 3U
-#define LK_KEY_CLOCK_SET 0U
-#define LK_KEY_ALARM_SET 1U
+#define LK_KEY_CLOCK_SET 1U
+#define LK_KEY_ALARM_SET 0U
 
 // Состояние кнопки
 #define LK_KEY_OFF 0U // Отпущена
